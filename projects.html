@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Projects</title>
+    <link rel="stylesheet" href="css/style.css">
+
+        <script>
+        var map;
+        var InforObj = [];
+        var centerCords = {
+            lat: 39.5696,
+            lng: 2.6502
+        };
+        var markersOnMap = [{
+                placeName: "Australia (Uluru)",
+                LatLng: [{lat: -25.344, lng: 131.036}]
+            },
+            {
+                placeName: "AS - Indira Gandhi International Airport",
+                LatLng: [{lat: 28.5561624, lng: 77.0977691}]
+            },
+            {
+                placeName: "AS - Singapore Changi Airport",
+                LatLng: [{lat: 1.3644202, lng: 103.9893421}]
+            },
+            {
+                placeName: "AS - Beijing Capital International Airport",
+                LatLng: [{lat: 40.0798573, lng: 116.6009234}]
+            },
+            {
+                placeName: "AS - Ben Gurion Airport",
+                LatLng: [{lat: 32.005532, lng: 34.8832225}]
+            },
+            {
+                placeName: "EU - Copenhagen Airport",
+                LatLng: [{lat: 55.6180236, lng: 12.6485741}]
+            },
+            {
+                placeName: "EU - Malpensa Airport",
+                LatLng: [{lat: 45.6300625, lng: 8.723342}]
+            },
+            {
+                placeName: "EU - Madrid-Barajas Adolfo Suárez Airport",
+                LatLng: [{lat: 40.4983322, lng: -3.5697869}]
+            },
+            {
+                placeName: "SA - Ezeiza International Airport",
+                LatLng: [{lat: -34.8150044, lng: -58.5370171}]
+            },
+            {
+                placeName: "SA - Jorge Chavez International Airport",
+                LatLng: [{lat: -12.0240527, lng: -77.1142247}]
+            },
+            {
+                placeName: "CA- Tocumen International Airport",
+                LatLng: [{lat: 9.0667013, lng: -79.389563}]
+            },
+            {
+                placeName: "USA - Miami International Airport",
+                LatLng: [{lat: 25.7958723, lng: -80.2892396}]
+            },
+            {
+                placeName: "USA - McCarran International Airport",
+                LatLng: [{lat: 36.0839998, lng: -115.1537389}]
+            },
+            {
+                placeName: "USA - John F. Kennedy International Airport",
+                LatLng: [{lat: 40.6413111, lng: -73.7803278}]
+            },
+            {
+                placeName: "USA - Denver International Airport",
+                LatLng: [{lat: 39.8560963, lng: -104.6737376}]
+            }
+        ];
+
+        window.onload = function () {
+            initMap();
+        };
+        function addMarkerInfo() {
+            for (var i = 0; i < markersOnMap.length; i++) {
+                var contentString = '<div id="content"><h1>' + markersOnMap[i].placeName +
+                    '</h1><p></p></div>';
+                    // '</h1><p>Lorem ipsum dolor sit amet, vix mutat posse suscipit id, vel ea tantas omittam detraxit.</p></div>';
+ 
+                const marker = new google.maps.Marker({
+                    position: markersOnMap[i].LatLng[0],
+                    map: map
+                });
+ 
+                const infowindow = new google.maps.InfoWindow({
+                    content: contentString,
+                    maxWidth: 200
+                });
+ 
+                marker.addListener('click', function () {
+                    closeOtherInfo();
+                    infowindow.open(marker.get('map'), marker);
+                    InforObj[0] = infowindow;
+                    });
+                }
+            }
+ 
+        function closeOtherInfo() {
+            if (InforObj.length > 0) {
+                /* detach the info-window from the marker ... undocumented in the API docs */
+                InforObj[0].set("marker", null);
+                /* and close it */
+                InforObj[0].close();
+                /* blank the array */
+                InforObj.length = 0;
+            }
+        }
+        
+        function initMap() {
+            map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 3,
+                center: centerCords,
+                styles: [
+{
+            "featureType": "administrative",
+            "elementType": "labels.text.fill",
+            "stylers": [
+                {
+                    "color": "#444444"
+                }
+            ]
+        },
+        {
+            "featureType": "landscape",
+            "elementType": "all",
+            "stylers": [
+                {
+                    "color": "#f2f2f2"
+                }
+            ]
+        },
+        {
+            "featureType": "poi",
+            "elementType": "all",
+            "stylers": [
+                {
+                    "visibility": "off"
+                }
+            ]
+        },
+        {
+            "featureType": "road",
+            "elementType": "all",
+            "stylers": [
+                {
+                    "saturation": -100
+                },
+                {
+                    "lightness": 45
+                }
+            ]
+        },
+        {
+            "featureType": "road.highway",
+            "elementType": "all",
+            "stylers": [
+                {
+                    "visibility": "simplified"
+                }
+            ]
+        },
+        {
+            "featureType": "road.arterial",
+            "elementType": "labels.icon",
+            "stylers": [
+                {
+                    "visibility": "off"
+                }
+            ]
+        },
+        {
+            "featureType": "transit",
+            "elementType": "all",
+            "stylers": [
+                {
+                    "visibility": "off"
+                }
+            ]
+        },
+        {
+            "featureType": "water",
+            "elementType": "all",
+            "stylers": [
+                {
+                    "color": "#46bcec"
+                },
+                {
+                    "visibility": "on"
+                }
+            ]
+        }
+        ]
+            });
+            addMarkerInfo();
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html"><div class="bnp-logo"> 
+            </div></a>
+            <ul class="nav-links">
+                <li>
+                    <a class="current" href="projects.html">Projects</a>
+                </li>
+                <li>
+                    <a href="about.html">About us</a>
+                </li>
+                <li>
+                    <a href="contact.html">Contact</a>
+                </li>
+                <li>
+                    <a href="#">Newsletter</a>
+                </li>
+                <li>
+                    <a href="#">Portal</a>
+                </li>
+            </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
+    </header>
+
+    <div id="map"></div> 
+    
+   <main>
+        <div class="general-padding">
+            <div class="main-headings">
+                <h4>Projects</h4>
+                <div></div>
+                <p>Shown in the map are locations of previous and current BNP projects.</p>
+            </div>
+
+            <div class="briefs-container">
+                <div>
+                    <img src="/images/projects-jfk.jpg" alt="jfk" width="615px" height="422px">
+                </div>
+                <div class="briefs-text">
+                    <h3>John F Kennedy International Airport, New York, Terminal 4</h3>
+                    <p>The Team of LCOR/Schiphol-USA has been selected by the Port Authority of New York and New Jersey to provide the first privately funded Terminal Redevelopment at JFK in exchange for a 20-year lease on the new facility.</p>
+                    <p>The International Arrivals Building - IAB was the first terminal constructed at John F. Kennedy International Airport (at that time Idlewild Airport). It serves as the US gateway to the majority of foreign flag carriers. The east and west wings of the facility support the departure operations.</p>
+                    <a href="#"><div class="btn-general">learn more </div></a>
+                </div>
+            </div>
+
+            <div class="main-headings">
+                <h4>Clients</h4>
+                <div></div>
+                <p>BNP’s client list is composed of airlines, airports, government agencies, express companies and Architects/Engineers who specialize in airports. The majority of BNP clients are repeat customers who retain BNP to develop all of their material handling system designs. We work as an extension of our client's staff, offering an unparalleled wealth of knowledge and experience.</p>
+            </div>
+        </div>
+    </main>
+
+    <div class="section-gray">
+        <div class="general-padding">
+            <div class="client-flex">
+                <div class="client-columns">
+                    <div class="client-card">
+                        <div class="client-image-box">
+                            <img src="/images/projects-airport-authority-02.jpg" alt="Airport Authorities" width="400px" height="225px">
+                        </div>
+                        <h3>Airport Authorities</h3>
+                    </div>
+            
+                    <div class="logo-flex">
+                        <div class="logo-column">
+                            <a href="https://www.abudhabiairport.ae/en">
+                                <div class="logo">
+                                    <div><img src="/images/logo-abu-dhabi.jpg" alt="abu-dhabi-logo"></div>
+                                </div></a>
+                            <a href="https://www.changiairport.com/">
+                                <div class="logo">
+                                    <div><img src="/images/logo-changi.jpg" alt="changi-logo"></div>
+                                </div></a>
+                            <a href="https://www.hongkongairport.com/">
+                                <div class="logo">
+                                    <div><img src="/images/logo-hong-kong.jpg" alt="hong-kong-logo"></div>
+                                </div></a>
+                        </div>
+            
+                        <div class="logo-column">
+                            <a href="https://www.airport.kr/ap/en/index.do">
+                                <div class="logo">
+                                    <div><img src="/images/logo-incheon.jpg" alt="incheon-logo"></div>
+                                </div></a>
+                            <a href="https://www.flylax.com/">
+                                <div class="logo">
+                                    <div><img src="/images/logo-lax.jpg" alt="lax-logo"></div>
+                                </div></a>
+                            <a href="https://www.portseattle.org/sea-tac">
+                                <div class="logo">
+                                    <div><img src="/images/logo-port-of-seattle.jpg" alt="seattle-logo"></div>
+                                </div></a>
+                        </div>
+                    </div>
+                
+                    <div class="arrow-down" id="click-to-show">
+                        <img src="/images/duotone-01.svg" alt="drop-down-arrow" width="38px" height="38px">
+                        <!-- <p><i class="down"></i></p> -->
+                    </div>
+            
+                    <div class="additional-logos" id="show-on-click">
+                        <div class="logo-flex">
+                            <div class="logo-column">
+                                <a href="#"><div class="logo">coming soon</div></a>
+                                <a href="#"><div class="logo">coming soon</div></a>
+                                <a href="#"><div class="logo">coming soon</div></a>
+                            </div>
+                            <div class="logo-column">
+                                <div class="logo">coming soon</div>
+                                <div class="logo">coming soon</div>
+                                <div class="logo">coming soon</div>
+                            </div>
+                        </div>
+                    </div>
+            
+                </div> 
+                <div class="client-columns">
+                    <div class="client-card">
+                        <div class="client-image-box">
+                            <img src="/images/projects-architects.jpg" alt="Airport Authorities" width="400px" height="225px">
+                        </div>
+                        <h3>Architects, Planners and General Contractors</h3>
+                    </div>
+            
+                    <div class="logo-flex">
+                        <div class="logo-column">
+                            <a href="https://www.gensler.com/">
+                                <div class="logo">
+                                    <div><img src="/images/logo-gensler.jpg" alt="gensler-logo"></div>
+                                </div></a>
+                            <a href="https://www.abudhabiairport.ae/en">
+                                <div class="logo">
+                                    <div><img src="/images/logo-corgan.jpg" alt="corgan-logo"></div>
+                                </div></a>
+                            <a href="https://www.aecom.com/">
+                                <div class="logo">
+                                    <div><img src="/images/logo-aecom.jpg" alt="aecom-logo"></div>
+                                </div></a>
+                        </div>
+            
+                        <div class="logo-column">
+                            <a href="https://www.henselphelps.com/">
+                                <div class="logo">
+                                    <div><img src="/images/logo-hensel-phelps.jpg"alt="hensel-phelps-logo"></div>
+                                </div></a>
+                            <a href="https://fentressarchitects.com/">
+                                <div class="logo">
+                                    <div><img src="/images/logo-fentress.jpg" alt="fentress-logo"></div>
+                                </div></a>
+                            <a href="https://www.rsandh.com/">
+                                <div class="logo">
+                                    <div><img src="/images/logo-rsh.jpg" alt="rsh-logo"></div>
+                                </div></a>
+                        </div>
+                    </div>
+                
+                    <div class="arrow-down" id="click-to-show">
+                            <img src="/images/duotone-01.svg" alt="drop-down-arrow" width="38px" height="38px">
+                        <!-- <p><i class="down"></i></p> -->
+                    </div>
+            
+                    <div class="additional-logos" id="show-on-click">
+                        <div class="logo-flex">
+                            <div class="logo-column">
+                                <a href="#"><div class="logo">coming soon</div></a>
+                                <a href="#"><div class="logo">coming soon</div></a>
+                                <a href="#"><div class="logo">coming soon</div></a>
+                            </div>
+                            <div class="logo-column">
+                                <div class="logo">coming soon</div>
+                                <div class="logo">coming soon</div>
+                                <div class="logo">coming soon</div>
+                            </div>
+                        </div>
+                    </div>
+            
+                </div> 
+                <div class="client-columns">
+                    <div class="client-card">
+                        <div class="client-image-box">
+                            <img src="/images/projects-airlines.jpg" alt="Airport Authorities" width="400px" height="225px">
+                        </div>
+                        <h3>Airlines</h3>
+                    </div>
+            
+                    <div class="logo-flex">
+                        <div class="logo-column">
+                            <a href="https://www.aa.com/homePage.do">
+                                <div class="logo">
+                                    <div><img src="/images/logo-american.jpg" alt="american-logo"></div>
+                                </div></a>
+                            <a href="https://www.delta.com/">
+                                <div class="logo">
+                                    <div><img src="/images/logo-delta.jpg" alt="delta-logo"></div>
+                                </div></a>
+                            <a href="https://www.jetblue.com/">
+                                <div class="logo">
+                                    <div><img src="/images/logo-jetblue.jpg" alt="jetlbue-logo"></div>
+                                </div></a>
+                        </div>
+            
+                        <div class="logo-column">
+                            <a href="https://www.singaporeair.com/en_UK/us/home#/book/bookflight">
+                                <div class="logo">
+                                    <div><img src="/images/logo-singapore.jpg" alt="singapore-logo"></div>
+                                </div></a>
+                            <a href="https://www.southwest.com/">
+                                <div class="logo">
+                                    <div><img src="/images/logo-southwest.jpg" alt="southwest-logo"></div>
+                                </div></a>
+                            <a href="https://www.united.com/en/us">
+                                <div class="logo">
+                                    <div><img src="/images/logo-united.jpg" alt="united-logo"></div>
+                                </div></a>
+                        </div>
+                    </div>
+                
+                    <div class="arrow-down" id="click-to-show">
+                            <img src="/images/duotone-01.svg" alt="drop-down-arrow" width="38px" height="38px">
+                        <!-- <p><i class="down"></i></p> -->
+                    </div>
+            
+                    <div class="additional-logos" id="show-on-click">
+                        <div class="logo-flex">
+                            <div class="logo-column">
+                                <a href="#"><div class="logo">coming soon</div></a>
+                                <a href="#"><div class="logo">coming soon</div></a>
+                                <a href="#"><div class="logo">coming soon</div></a>
+                            </div>
+                            <div class="logo-column">
+                                <div class="logo">coming soon</div>
+                                <div class="logo">coming soon</div>
+                                <div class="logo">coming soon</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+           </div> 
+       </div> 
+       <footer id="footer"></footer>
+       </div>
+       
+
+   
+    
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAp6BHBHqfCT7hMvGRQe0Y0y_OlA9eqWyM&callback=initMap">
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="js/index.js"></script>  
+ 
+</body>
+</html>
