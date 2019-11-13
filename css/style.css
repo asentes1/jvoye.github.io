@@ -86,8 +86,7 @@ input {
     border-radius: 2px;
     -webkit-appearance: none;
     -moz-appearance: none;
-    appearance: none;
-        
+    appearance: none;   
 }
 input:focus {
     outline:none;
@@ -1548,6 +1547,8 @@ footer ul {
     .leadership-wrapper {
         margin-top: 100px;
     }
+    .hero-img-contact{
+        height: 450px;
    
     
 }
