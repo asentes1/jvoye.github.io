@@ -1548,7 +1548,14 @@ footer ul {
         margin-top: 100px;
     }
     .hero-img-contact{
-        height: 450px;
+        height: 400px;
+    }
+    .hero-text-contact {
+        margin-top: 150px;
+    }
+    .hero-subtext-test {
+        font-size: 1.2rem;
+    }
    
     
 }
