@@ -172,7 +172,7 @@ textarea {
 }
 .btn-adjust {
     text-align: center;
-    margin: 15px 0px 0px 0px;
+    margin: 20px 0px 0px 0px;
     height: 40px;
     width: 130px;
     line-height: 40px;
@@ -385,12 +385,14 @@ nav li a:hover:after {
     background-size: cover;
     background-position: center center; 
   }
+  
   @keyframes breath {
     from { 
       transform: scale(1);
     }
     to {
       transform: scale(1.08)
+      
     }
   }
 
@@ -1142,7 +1144,7 @@ footer ul {
     align-content: center;
     align-items: center;
     height: 600px;
-    background-image: url(/images/contact-hero.jpg);
+    /* background-image: url(/images/contact-hero.jpg); */
     background-color: lightgray;
     background-size: cover;
     background-position: center;
@@ -1209,6 +1211,7 @@ footer ul {
 /*****************************************************************************/
 /* breakpoints */
 /*****************************************************************************/
+
 
 @media screen and (max-width:1300px){
 
@@ -1448,7 +1451,7 @@ footer ul {
     .nav-links {
         position: absolute;
         right: 0px;
-        height: 400px;
+        height: 350px;
         top: 8vh;
         background-color: rgb(255, 255, 255);
         display: flex;
@@ -1457,14 +1460,6 @@ footer ul {
         width: 100%;
         box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.15);
         transform: translateX(100%); 
-        -webkit-transform: translateX(100%); 
-        -moz-transform: translateX(100%); 
-        -ms-transform: translateX(100%); 
-        -o-transform: translateX(100%); 
-        -webkit-transition: transform 0.5s ease-in;
-        -moz-transition: transform 0.5s ease-in;
-        -ms-transition: transform 0.5s ease-in;
-        -o-transition: transform 0.5s ease-in;
         transition: transform 0.5s ease-in;
     }
     .nav-links li {
@@ -1534,8 +1529,10 @@ footer ul {
     .leadership-column {
         margin: 0px;
         margin-top: 50px;
-
     }
+    nav li a:after {
+        display: none;
+    }  
    
     
    
@@ -1626,9 +1623,7 @@ footer ul {
     #map {
         height: 400px;
     }
-    nav li a:after {
-        display: none;
-    }  
+    
 }
 
 @media screen and (max-width:400px){
