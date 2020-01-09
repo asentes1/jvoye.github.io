@@ -7,378 +7,218 @@
     <title>projects</title>
     <link rel="stylesheet" href="css/style.css">
 
-        <script>
-        var map;
-        var InforObj = [];
-        var centerCords = {
-            lat: 39.5696,
-            lng: 2.6502
-        };
-        var markersOnMap = [{
-                placeName: "Australia (Uluru)",
-                LatLng: [{lat: -25.344, lng: 131.036}]
-            },
-            {
-                placeName: "AS - Indira Gandhi International Airport",
-                LatLng: [{lat: 28.5561624, lng: 77.0977691}]
-            },
-            {
-                placeName: "AS - Singapore Changi Airport",
-                LatLng: [{lat: 1.3644202, lng: 103.9893421}]
-            },
-            {
-                placeName: "AS - Beijing Capital International Airport",
-                LatLng: [{lat: 40.0798573, lng: 116.6009234}]
-            },
-            {
-                placeName: "AS - Ben Gurion Airport",
-                LatLng: [{lat: 32.005532, lng: 34.8832225}]
-            },
-            {
-                placeName: "EU - Copenhagen Airport",
-                LatLng: [{lat: 55.6180236, lng: 12.6485741}]
-            },
-            {
-                placeName: "EU - Malpensa Airport",
-                LatLng: [{lat: 45.6300625, lng: 8.723342}]
-            },
-            {
-                placeName: "EU - Madrid-Barajas Adolfo Suárez Airport",
-                LatLng: [{lat: 40.4983322, lng: -3.5697869}]
-            },
-            {
-                placeName: "SA - Ezeiza International Airport",
-                LatLng: [{lat: -34.8150044, lng: -58.5370171}]
-            },
-            {
-                placeName: "SA - Jorge Chavez International Airport",
-                LatLng: [{lat: -12.0240527, lng: -77.1142247}]
-            },
-            {
-                placeName: "CA- Tocumen International Airport",
-                LatLng: [{lat: 9.0667013, lng: -79.389563}]
-            },
-            {
-                placeName: "USA - Miami International Airport",
-                LatLng: [{lat: 25.7958723, lng: -80.2892396}]
-            },
-            {
-                placeName: "USA - McCarran International Airport",
-                LatLng: [{lat: 36.0839998, lng: -115.1537389}]
-            },
-            {
-                placeName: "USA - John F. Kennedy International Airport",
-                LatLng: [{lat: 40.6413111, lng: -73.7803278}]
-            },
-            {
-                placeName: "USA - Denver International Airport",
-                LatLng: [{lat: 39.8560963, lng: -104.6737376}]
-            },
-
-
-
-            //old map locations//
-            {
-                placeName: "OGG",
-                LatLng: [{lat: 20.8967924, lng: -156.4329379}]
-            },
-            {
-                placeName: "LAX",
-                LatLng: [{lat: 33.9415889, lng: -118.40853}]
-            },
-            {
-                placeName: "IND",
-                LatLng: [{lat: 39.7168593, lng: -86.2955952}]
-            },
-            {
-                placeName: "PHL",
-                LatLng: [{lat: 39.8743959, lng: -75.2424229}]
-            },
-            {
-                placeName: "ATL",
-                LatLng: [{lat: 33.6407282, lng: -84.4277001}]
-            },
-            {
-                placeName: "SEA",
-                LatLng: [{lat: 47.4502499, lng: -122.3088165}]
-            },
-            {
-                placeName: "PTY",
-                LatLng: [{lat: 9.0669766, lng: -79.3870681}]
-            },
-            {
-                placeName: "PDX",
-                LatLng: [{lat: 45.5897694, lng: -122.5950942}]
-            },
-            {
-                placeName: "GEG",
-                LatLng: [{lat: 47.6217478, lng: -117.534812}]
-            },
-            {
-                placeName: "SMF",
-                LatLng: [{lat: 38.6950854, lng: -121.5900648}]
-            },
-            {
-                placeName: "SFO",
-                LatLng: [{lat: 37.6213129, lng: -122.3789554}]
-            },
-            {
-                placeName: "SJC",
-                LatLng: [{lat: 37.3639472, lng: -121.9289375}]
-            },
-            {
-                placeName: "OAK",
-                LatLng: [{lat: 37.7125689, lng: -122.2197428}]
-            },
-            {
-                placeName: "RNO",
-                LatLng: [{lat: 39.4995907, lng: -119.7680951}]
-            },
-            {
-                placeName: "LAS",
-                LatLng: [{lat: 36.0839998, lng: -115.1537389}]
-            },
-            {
-                placeName: "BOI",
-                LatLng: [{lat: 43.5658231, lng: -116.222316}]
-            },
-            {
-                placeName: "MSO",
-                LatLng: [{lat: 46.9188167, lng: -114.0837362}]
-            },
-            {
-                placeName: "JAC",
-                LatLng: [{lat: 43.6046209, lng: -110.7386093}]
-            },
-            {
-                placeName: "SLC",
-                LatLng: [{lat: 40.7899404, lng: -111.9790706}]
-            },
-            {
-                placeName: "DEN",
-                LatLng: [{lat: 39.8560963, lng: -104.6737376}]
-            },
-            {
-                placeName: "PHX",
-                LatLng: [{lat: 33.4372686, lng: -112.0077881}]
-            },
-            {
-                placeName: "EGE",
-                LatLng: [{lat: 39.6404475, lng: -106.9097116}]
-            },
-            {
-                placeName: "SBA",
-                LatLng: [{lat: 34.4271935, lng: -119.8398835}]
-            },
-            {
-                placeName: "BUR",
-                LatLng: [{lat: 34.1983122, lng: -118.3574036}]
-            },
-            {
-                placeName: "PSP",
-                LatLng: [{lat: 33.8303194, lng: -116.5070468}]
-            },
-            {
-                placeName: "SNA",
-                LatLng: [{lat: 33.6761901, lng: -117.8674759}]
-            },
-            {
-                placeName: "LGB",
-                LatLng: [{lat: 33.8182528, lng: -118.1447834}]
-            },
-            {
-                placeName: "ELP",
-                LatLng: [{lat: 31.8053354, lng: -106.3824345}]
-            },
-            {
-                placeName: "LIH",
-                LatLng: [{lat: 21.9788489, lng: -159.3437585}]
-            },
-            {
-                placeName: "HNL",
-                LatLng: [{lat: 21.3245132, lng: -157.9250736}]
-            },
-            {
-                placeName: "KOA",
-                LatLng: [{lat: 19.736916, lng: -156.0429246}]
-            },
-            {
-                placeName: "ITO",
-                LatLng: [{lat: 19.7188342, lng: -155.0416866}]
-            },
-            {
-                placeName: "ANC",
-                LatLng: [{lat: 61.1758863, lng: -149.9900791}]
-            },
-            {
-                placeName: "AMA",
-                LatLng: [{lat: 35.2184869, lng: -101.7052103}]
-            },
-            {
-                placeName: "DFW",
-                LatLng: [{lat: 32.8998091, lng: -97.0403352}]
-            },
-            {
-                placeName: "SAT",
-                LatLng: [{lat: 29.5311973, lng: -98.4683484}]
-            },
-            {
-                placeName: "IAH",
-                LatLng: [{lat: 29.9902199, lng: -95.3367827}]
-            },
-            {
-                placeName: "AUS",
-                LatLng: [{lat: 30.1974292, lng: -97.6663058}]
-            },
-            {
-                placeName: "OKC",
-                LatLng: [{lat: 35.393056, lng: -97.600556}]
-            },
-            {
-                placeName: "TUL",
-                LatLng: [{lat: 36.198778, lng: -95.8838659}]
-            },
-            // {
-            //     placeName: "JFK",
-            //     LatLng: [{lat: 40.6413111, lng: -73.7781391}]
-            // },
-            {
-                placeName: "OMA",
-                LatLng: [{lat: 41.2997128, lng: -95.9695264}]
-            },
-            {
-                placeName: "SGF",
-                LatLng: [{lat: 37.2380564, lng:-93.467136}]
-            },
-
-
-        ];
-
-        window.onload = function () {
-            initMap();
-        };
-        function addMarkerInfo() {
-            for (var i = 0; i < markersOnMap.length; i++) {
-                var contentString = '<div id="content"><h1>' + markersOnMap[i].placeName +
-                    '</h1><p></p></div>';
-                    // '</h1><p>Lorem ipsum dolor sit amet, vix mutat posse suscipit id, vel ea tantas omittam detraxit.</p></div>';
- 
-                const marker = new google.maps.Marker({
-                    position: markersOnMap[i].LatLng[0],
-                    map: map
-                });
- 
-                const infowindow = new google.maps.InfoWindow({
-                    content: contentString,
-                    maxWidth: 200
-                });
- 
-                marker.addListener('click', function () {
-                    closeOtherInfo();
-                    infowindow.open(marker.get('map'), marker);
-                    InforObj[0] = infowindow;
-                    });
+    <div id="map"></div>
+    <script>
+        function initMap(){
+              // map options
+              var options = {
+                zoom:7,
+                center:{lat:53.3938131, lng:-7.858913}
                 }
-            }
- 
-        function closeOtherInfo() {
-            if (InforObj.length > 0) {
-                /* detach the info-window from the marker ... undocumented in the API docs */
-                InforObj[0].set("marker", null);
-                /* and close it */
-                InforObj[0].close();
-                /* blank the array */
-                InforObj.length = 0;
-            }
-        }
+        var map = new google.maps.Map(document.getElementById('map'),options);
+              // Add a marker clusterer to manage the markers.
         
-        function initMap() {
-            map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 3,
-                center: centerCords,
-                styles: [
-{
-            "featureType": "administrative",
-            "elementType": "labels.text.fill",
-            "stylers": [
+              //Add marker
+              var markers = [{
+                  coords:{lat:39.8560963, lng:-104.6737376},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h1>USA - Denver International Airport</h1>'
+                },
+
+
+                //My Icons
+
+                
+        
+                //Dublin
                 {
-                    "color": "#444444"
-                }
-            ]
-        },
-        {
-            "featureType": "landscape",
-            "elementType": "all",
-            "stylers": [
-                {
-                    "color": "#f2f2f2"
-                }
-            ]
-        },
-        {
-            "featureType": "poi",
-            "elementType": "all",
-            "stylers": [
-                {
-                    "visibility": "off"
-                }
-            ]
-        },
-        {
-            "featureType": "road",
-            "elementType": "all",
-            "stylers": [
-                {
-                    "saturation": -100
+                  coords:{lat:53.338741, lng:-6.261563},
+                  iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h1>St Stephen’s Green</h1>'+ '<br>' + '<h2>Learn More</h2>' + '<a>http://ststephensgreenpark.ie/</a>'
                 },
                 {
-                    "lightness": 45
-                }
-            ]
-        },
-        {
-            "featureType": "road.highway",
-            "elementType": "all",
-            "stylers": [
-                {
-                    "visibility": "simplified"
-                }
-            ]
-        },
-        {
-            "featureType": "road.arterial",
-            "elementType": "labels.icon",
-            "stylers": [
-                {
-                    "visibility": "off"
-                }
-            ]
-        },
-        {
-            "featureType": "transit",
-            "elementType": "all",
-            "stylers": [
-                {
-                    "visibility": "off"
-                }
-            ]
-        },
-        {
-            "featureType": "water",
-            "elementType": "all",
-            "stylers": [
-                {
-                    "color": "#46bcec"
+                  coords:{lat:53.3755012,lng:-6.2735677},
+                  iconImage:'assets/img/places/botanic garden.png',
+                  content:'<h1>Botanic Garden</h1>' + '<br>' + '<h2>Learn More</h2>' + '<a>http://botanicgardens.ie/</a>'
                 },
                 {
-                    "visibility": "on"
+                  coords:{lat:53.355998576, lng:-6.32166538},
+                  iconImage:'assets/img/places/stparkdublin.png',////////////////////add picture
+                  content:'<h1>Phoenix Park</h1>' + '<br>' + '<h2>Learn More</h2>' + '<a>http://phoenixpark.ie/</a>'
+                },
+                {
+                  coords:{lat:53.460259, lng:-6.219985},
+                  iconImage:'assets/img/places/swordscastle.png',
+                  content:'<h1>Swords Castle</h1>'+ '<br>' + '<h2>Learn More</h2>' + '<a>https://swordscastle.events/</a>'
+                },
+                {
+                  coords:{lat:53.37923, lng:-6.07201},
+                  iconImage:'assets/img/places/Howth.png',
+                  content:'<h1>Howth</h1>'+ '<br>' + '<h2>Learn More</h2>' + '<a>http://www.visithowth.ie/</a>'
+                },
+                {
+                  coords:{lat:55.1364, lng:-7.456},
+                  iconImage:'assets/img/places/buncrana1.png',
+                  content:'<h1>Buncrana</h1>' + '<p>hello all</p>'
+                },
+        
+                {
+                  coords:{lat:53.152999388, lng:-6.1499994},
+                  iconImage:'assets/img/places/sugarloaf_icon.png',
+                  content:'<h1>Great sugar loaf</h1>'+ '<br>' + '<h2>Learn More</h2>' + '<a>http://visitwicklow.ie/item/the-sugarloaf-trail/</a>'
+                },
+                {
+                  coords:{lat:52.0058, lng:-9.5562},
+                  iconImage:'assets/img/places/killarney.png',
+                  content:'<h1>Killarney National Park </h1>'+ '<br>' + '<h2>Learn More</h2>' + '<a>https://www.killarneynationalpark.ie/</a>'
+                },
+                {
+                  coords:{lat:51.942662896, lng:-9.917162998},
+                  iconImage:'assets/img/places/clifs.png',
+                  content:'<h1>Ring of Kerry</h1>'+ '<br>' + '<h2>Learn More</h2>' + '<a>https://ringofkerrytourism.com/</a>'
+                },
+                {
+                  coords:{lat:52.679, lng:-7.814},
+                  iconImage:'assets/img/places/clifs.png',//add picture!!!!!!!!!!!!!!!
+                  content:'<h1>Thurles</h1>'+ '<br>' + '<h2>Learn More</h2>' + '<a>https://www.tipperary.com/thurles</a>'
+                },
+                {
+                  coords:{lat:52.348, lng:-6.517},
+                  iconImage:'assets/img/places/wexford museum.png',
+                  content:'<h1>Irish National Heritage Park</h1>'+ '<br>' + '<h2>Learn More</h2>' + '<a>http://www.irishheritage.ie/</a>'
+                },
+                {
+                  coords:{lat:53.018, lng:-6.398},
+                  iconImage:'assets/img/places/wicklow.png',
+                  content:'<h1> Wicklow Mountains National Park</h1>'+ '<br>' + '<h2>Learn More</h2>' + '<a>https://www.wicklowmountainsnationalpark.ie/</a>'
+                },
+                {
+                  coords:{lat:53.011299, lng:   -6.326156},
+                  iconImage:'assets/img/places/glendalough.png',
+                  content:'<h1> Glendalough </h1>'+ '<br>' + '<h2>Learn More</h2>' + '<a>http://www.glendalough.ie/</a>'
+                },
+                {
+                  coords:{lat:53.1876492494, lng:-6.083832998},
+                  iconImage:'assets/img/places/Bray.png',
+                  content:'<h1> Bray</h1>'+ '<br>' + '<h2>Learn More</h2>' + '<a>http://www.bray.ie/</a>'
+                },
+                {
+                  coords:{lat:53.144, lng: -6.072},
+                  iconImage:'assets/img/places/greystones.png',
+                  content:'<h1>Greystones</h1>'+ '<br>' + '<h2>Learn More</h2>' + '<a>http://visitwicklow.ie/item/greystones/</a>'
+                },
+                {
+                  coords:{lat:52.518664592, lng:-7.887329784},
+                  iconImage:'assets/img/places/Cashel.png',
+                  content:'<h1>Rock of Cashel</h1>'+ '<br>' + '<h2>Learn More</h2>' + '<a>https://www.cashel.ie/</a>'
+                },
+                {
+                  coords:{lat:52.6477, lng: -7.2561},
+                  iconImage:'assets/img/places/kilkenny.png',
+                  content:'<h1>Killenny</h1>'+ '<br>' + '<h2>Learn More</h2>' + '<a>https://visitkilkenny.ie/</a>'
+                },
+                //cork
+                {
+                  coords:{lat:51.902694, lng:-8.4767},
+                  iconImage:'assets/img/places/butterCork.png',
+                  content:'<h1>Museum of Butter</h1>'+ '<br>' + '<h2>Learn More</h2>' + '<a>http://thebuttermuseum.com/</a>'
+                },
+                {
+                  coords:{lat:51.89953, lng:-8.499022},
+                  iconImage:'assets/img/places/prisoncork.png',
+                  content:'<h1>Cork City Gaol</h1>'+'<br>' + '<h2>Learn More</h2>' + '<a>https://corkcitygaol.com/</a>'
+                },
+        
+                {
+                  coords:{lat:53.4513204, lng:-6.140871},
+                  iconImage:'assets/img/places/malahideB.png',
+                  content:'<h1>Malahide</h1>'+'<br>' + '<h2>Learn More</h2>' + '<a>https://www.malahide.ie/</a>'
+                },
+        
+                {
+                  coords:{lat:53.2839577, lng:-9.0837658},
+                  iconImage:'assets/img/places/galway.png',
+                  content:'<h1>Galway</h1>'+'<br>' + '<h2>Learn More</h2>' + '<a>https://www.galwaytourism.ie/</a>'
+                },
+                {
+                  coords:{lat:53.470580, lng:-6.122405},
+                  iconImage:'assets/img/places/galway.png',
+                  content:'<h1>Donabate Beach</h1>'+'<br>' + '<h2>Learn More</h2>' + '<a>https://en.wikipedia.org/wiki/Donabate</a>'
+                },
+                {
+                  coords:{lat:52.9713299, lng:-9.4300415},
+                  iconImage:'assets/img/places/clifsofmoher.png',
+                  content:'<h1>Donabate Beach</h1>'+'<br>' + '<h2>Learn More</h2>' + '<a>https://www.cliffsofmoher.ie/</a>'
+                },
+                {
+                  coords:{lat:51.8960528, lng:-8.4980693},
+                  iconImage:'assets/img/places/Cork.png',
+                  content:'<h1>Cork</h1>'+'<br>' + '<h2>Learn More</h2>' + '<a>https://purecork.ie/</a>'
+                },
+                {
+                  coords:{lat:53.3667776, lng:-6.5064198},
+                  iconImage:'assets/img/places/Leixlip.png',
+                  content:'<h1>Leixlip</h1>'+'<br>' + '<h2>Learn More</h2>' + '<a>https://pl.wikipedia.org/wiki/Leixlip</a>'
+                },
+                {
+                  coords:{lat:53.1654628, lng:-6.125499},
+                  iconImage:'assets/img/places/littlesugarloaf.png',
+                  content:'<h1>Little Sugar Loaf</h1>'+'<br>' + '<h2>Learn More</h2>' + '<a>https://www.greystonesguide.ie/little-sugar-loafs-big-day/</a>'
+                },
+                {
+                  coords:{lat:53.5474019, lng:-6.0933048},
+                  iconImage:'assets/img/places/rockabill view.png',
+                  content:'<h1>Rockabill View</h1>'+'<br>' + '<h2>Learn More</h2>' + '<a>http://www.skerriesseatours.ie/trips.html</a>'
+                },
+                {
+                  coords:{lat:52.3337499, lng:-6.4906996},
+                  iconImage:'assets/img/places/wexford.png',
+                  content:'<h1>Wexford</h1>'+'<br>' + '<h2>Learn More</h2>' + '<a>https://www.visitwexford.ie/</a>'
+                },
+              ];
+        
+              // Loop through markers
+              var gmarkers = [];
+              for(var i = 0; i < markers.length; i++){
+                gmarkers.push(addMarker(markers[i]));
+        
+              }
+        
+              //Add MArker function
+              function addMarker(props){
+                var marker = new google.maps.Marker({
+                  position:props.coords,
+                  map:map,
+        
+                });
+        
+                /* if(props.iconImage){
+                  marker.setIcon(props.iconImage);
+                } */
+        
+                //Check content
+                if(props.content){
+                  var infoWindow = new google.maps.InfoWindow({
+                    content:props.content
+                  });
+                  marker.addListener('click',function(){
+                    infoWindow.open(map,marker);
+                  });
                 }
-            ]
-        }
-        ]
-            });
-            addMarkerInfo();
-        }
+                return marker;
+              }
+            var markerCluster = new MarkerClusterer(map, gmarkers, 
+              {
+                imagePath:
+                'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'
+              });
+            }
+          google.maps.event.addDomListener(window, 'load', initMap)
+        </script>
+    <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js">
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap">
     </script>
 </head>
 <body>

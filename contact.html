@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Contact</title>
+    <title>contact</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -107,26 +107,32 @@ function initMap() {
 
 
 <body>
-    <header id="navbars">
+    <header>
         <nav>
             <a href="index.html"><div class="bnp-logo"> 
             </div></a>
             <ul class="nav-links">
                 <li>
-                    <a href="projects.html">Projects</a>
-                </li>
-                <li>
                     <a href="about.html">About us</a>
                 </li>
                 <li>
-                    <a class="current" href="#">Contact</a>
+                    <a href="services.html">Services</a>
                 </li>
                 <li>
-                    <a href="#">Newsletter</a>
+                    <a href="projects.html">Projects</a>
                 </li>
                 <li>
+                    <a  class="current" href="contact.html">Contact</a>
+                </li>
+                <li>
+                    <a href="careers.html">Careers</a>
+                </li>
+                <li>
+                    <a href="news.html">News</a>
+                </li>
+                <!-- <li>
                     <a href="#">Portal</a>
-                </li>
+                </li> -->
             </ul>
             <div class="burger">
                 <div class="line1"></div>
@@ -137,15 +143,23 @@ function initMap() {
     </header>
 
     <main>
-        <div class="hero-text-contact">
+        <section>
+            <div class="hero-secondary --contact margin-med">
+                <div class="hero-secondary__text-container">
+                    <h1 class="hero-secondary__header margin-sm">Contact Us - We look forward to<br> hearing from you.</h1>
+                    <p class="hero-secondary__sub-header">designers | planners | engineers</p>
+                </div>
+            </div>
+        </section>
+        <!-- <div class="hero-text-contact">
             <div class="general-padding">
                 <h1 class="hero-header-contact">Contact Us</h1>
-                <p class="hero-subtext-test">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deleniti, doloremque soluta odit veritatis quas neque praesentium</p>
+                <p class="hero-subtext-contact">We look forward to hearing from you. Send us a message and we'll respond as soon as possible</p>
             </div>
-        </div>
+        </div> -->
    
-        <div class="hero-img-contact"></div>
-        <div class="spacer"></div>
+        <!-- <div class="hero-img-contact margin-med"></div> -->
+        <!-- <div class="spacer"></div> -->
     <div class="general-padding">
         <div class="form-container">
 
@@ -154,8 +168,8 @@ function initMap() {
                 <form action="https://yahoo.us20.list-manage.com/subscribe/post?u=7ce55bc8cb7f94aafb2779e40&amp;id=4eb9583d11" method="post" id="mc-embedded-subscribe-form"                   name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
                 <div id="mc_embed_signup_scroll">
 
-                        <h4>Send Us a Message</h4>
-                        <div class="divider-02"></div>
+                        <h3 class="headings-2-column margin-sm-med">Send Us a Message</h4>
+                        <!-- <div class="divider-02 "></div> -->
                     <!-- <div class="indicates-required"><span class="asterisk">*</span> indicates required</div> -->
                     
                     <div class="top-contact-row">
@@ -167,7 +181,7 @@ function initMap() {
                         <!-- <div class="mc-field-group"> -->
                             <!-- <label for="mce-EMAIL">Your Email  <span class="asterisk">*</span>
                         </label> -->
-                            <input type="email" value="" name="EMAIL" class="required email contact-input" id="mce-EMAIL" placeholder="Your Email *">
+                            <input type="email" value="" name="EMAIL" class="required email contact-input" id="mce-EMAIL" placeholder="Your Email*">
                         <!-- </div> -->
 
 
@@ -193,8 +207,8 @@ function initMap() {
             </div>
 
             <div class="contact-container">
-                <h4>Contact Info</h4>
-                <div class="divider-02"></div>
+                <h3 class="headings-2-column margin-sm">Contact Info</h3>
+                <!-- <div class="divider-02 margin-med"></div> -->
                 <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit, maxime quia assumenda repellendus.</p><br>
 
                 <div class="contact-flex-test">
@@ -222,18 +236,20 @@ function initMap() {
                     <div class="contact-icon-border">
                         <img src="/images/contact-envelope-01.svg"alt="phone-icon" width="15px" height="15px">
                     </div>
-                    <p><a href="mailto:bnpdenver@bnpassociates.com"class="contact-link"><span class="contact-link">  bnpdenver@bnpassociates.com</span></p></a>
+                    <p><a href="mailto:bnphq@bnpassociates.com"class="contact-link"><span class="contact-link"> bnphq@bnpassociates.com</span></p></a>
                 </div><br>
             </div>
         </div>
 
-        <div class="main-container">
-            <div id="mapDenver"></div> 
-        </div>
+        <section class="section-contact-map">
+            <div class="main-container">
+                <div id="mapDenver"></div> 
+            </div>
+        </section>
 
         <div class="main-headings">
-            <h4>Additional Locations</h4>
-            <div></div>
+            <h4 class="center-headings__header margin-med">Additional Locations</h4>
+            <!-- <div></div> -->
         </div>
         
         <div class="contact-flex">

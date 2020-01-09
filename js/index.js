@@ -10,9 +10,40 @@ $('.arrow-down').click(function(){
     $('.additional-logos').slideToggle(300);
       });
 
-// $('#click-to-show').click(function(){
-//     $('#show-on-click').slideToggle(400);
-//       });
+
+//Available Jobs Drop Down-01
+$('#job-01').click(function(){
+    $('.job-01').slideToggle(300);
+        $('#chevron-up-01').toggle();
+            $('#chevron-down-01').toggle();
+});
+
+// $('#job-01').click(function(){
+    
+// });
+
+// $('#job-01').click(function(){
+    
+// });
+
+//Available Jobs Drop Down-02
+$('#job-02').click(function(){
+    $('.job-02').slideToggle(300);
+        $('#chevron-up-02').toggle();
+            $('#chevron-down-02').toggle();
+});
+
+//Available Jobs Drop Down-03
+$('#job-03').click(function(){
+    $('.job-03').slideToggle(300);
+        $('#chevron-up-03').toggle();
+            $('#chevron-down-03').toggle();
+});
+
+
+
+
+
 
 const navSlide = () => {
   const burger = document.querySelector('.burger');
