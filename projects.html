@@ -7,380 +7,981 @@
     <title>projects</title>
     <link rel="stylesheet" href="css/style.css">
 
-        <script>
-        var map;
-        var InforObj = [];
-        var centerCords = {
-            lat: 39.5696,
-            lng: 2.6502
-        };
-        var markersOnMap = [{
-                placeName: "Australia (Uluru)",
-                LatLng: [{lat: -25.344, lng: 131.036}]
-            },
-            {
-                placeName: "AS - Indira Gandhi International Airport",
-                LatLng: [{lat: 28.5561624, lng: 77.0977691}]
-            },
-            {
-                placeName: "AS - Singapore Changi Airport",
-                LatLng: [{lat: 1.3644202, lng: 103.9893421}]
-            },
-            {
-                placeName: "AS - Beijing Capital International Airport",
-                LatLng: [{lat: 40.0798573, lng: 116.6009234}]
-            },
-            {
-                placeName: "AS - Ben Gurion Airport",
-                LatLng: [{lat: 32.005532, lng: 34.8832225}]
-            },
-            {
-                placeName: "EU - Copenhagen Airport",
-                LatLng: [{lat: 55.6180236, lng: 12.6485741}]
-            },
-            {
-                placeName: "EU - Malpensa Airport",
-                LatLng: [{lat: 45.6300625, lng: 8.723342}]
-            },
-            {
-                placeName: "EU - Madrid-Barajas Adolfo Suárez Airport",
-                LatLng: [{lat: 40.4983322, lng: -3.5697869}]
-            },
-            {
-                placeName: "SA - Ezeiza International Airport",
-                LatLng: [{lat: -34.8150044, lng: -58.5370171}]
-            },
-            {
-                placeName: "SA - Jorge Chavez International Airport",
-                LatLng: [{lat: -12.0240527, lng: -77.1142247}]
-            },
-            {
-                placeName: "CA- Tocumen International Airport",
-                LatLng: [{lat: 9.0667013, lng: -79.389563}]
-            },
-            {
-                placeName: "USA - Miami International Airport",
-                LatLng: [{lat: 25.7958723, lng: -80.2892396}]
-            },
-            {
-                placeName: "USA - McCarran International Airport",
-                LatLng: [{lat: 36.0839998, lng: -115.1537389}]
-            },
-            {
-                placeName: "USA - John F. Kennedy International Airport",
-                LatLng: [{lat: 40.6413111, lng: -73.7803278}]
-            },
-            {
-                placeName: "USA - Denver International Airport",
-                LatLng: [{lat: 39.8560963, lng: -104.6737376}]
-            },
+    <div id="map" class="margin-med"></div>
+    <script>
 
-
-
-            //old map locations//
-            {
-                placeName: "OGG",
-                LatLng: [{lat: 20.8967924, lng: -156.4329379}]
-            },
-            {
-                placeName: "LAX",
-                LatLng: [{lat: 33.9415889, lng: -118.40853}]
-            },
-            {
-                placeName: "IND",
-                LatLng: [{lat: 39.7168593, lng: -86.2955952}]
-            },
-            {
-                placeName: "PHL",
-                LatLng: [{lat: 39.8743959, lng: -75.2424229}]
-            },
-            {
-                placeName: "ATL",
-                LatLng: [{lat: 33.6407282, lng: -84.4277001}]
-            },
-            {
-                placeName: "SEA",
-                LatLng: [{lat: 47.4502499, lng: -122.3088165}]
-            },
-            {
-                placeName: "PTY",
-                LatLng: [{lat: 9.0669766, lng: -79.3870681}]
-            },
-            {
-                placeName: "PDX",
-                LatLng: [{lat: 45.5897694, lng: -122.5950942}]
-            },
-            {
-                placeName: "GEG",
-                LatLng: [{lat: 47.6217478, lng: -117.534812}]
-            },
-            {
-                placeName: "SMF",
-                LatLng: [{lat: 38.6950854, lng: -121.5900648}]
-            },
-            {
-                placeName: "SFO",
-                LatLng: [{lat: 37.6213129, lng: -122.3789554}]
-            },
-            {
-                placeName: "SJC",
-                LatLng: [{lat: 37.3639472, lng: -121.9289375}]
-            },
-            {
-                placeName: "OAK",
-                LatLng: [{lat: 37.7125689, lng: -122.2197428}]
-            },
-            {
-                placeName: "RNO",
-                LatLng: [{lat: 39.4995907, lng: -119.7680951}]
-            },
-            {
-                placeName: "LAS",
-                LatLng: [{lat: 36.0839998, lng: -115.1537389}]
-            },
-            {
-                placeName: "BOI",
-                LatLng: [{lat: 43.5658231, lng: -116.222316}]
-            },
-            {
-                placeName: "MSO",
-                LatLng: [{lat: 46.9188167, lng: -114.0837362}]
-            },
-            {
-                placeName: "JAC",
-                LatLng: [{lat: 43.6046209, lng: -110.7386093}]
-            },
-            {
-                placeName: "SLC",
-                LatLng: [{lat: 40.7899404, lng: -111.9790706}]
-            },
-            {
-                placeName: "DEN",
-                LatLng: [{lat: 39.8560963, lng: -104.6737376}]
-            },
-            {
-                placeName: "PHX",
-                LatLng: [{lat: 33.4372686, lng: -112.0077881}]
-            },
-            {
-                placeName: "EGE",
-                LatLng: [{lat: 39.6404475, lng: -106.9097116}]
-            },
-            {
-                placeName: "SBA",
-                LatLng: [{lat: 34.4271935, lng: -119.8398835}]
-            },
-            {
-                placeName: "BUR",
-                LatLng: [{lat: 34.1983122, lng: -118.3574036}]
-            },
-            {
-                placeName: "PSP",
-                LatLng: [{lat: 33.8303194, lng: -116.5070468}]
-            },
-            {
-                placeName: "SNA",
-                LatLng: [{lat: 33.6761901, lng: -117.8674759}]
-            },
-            {
-                placeName: "LGB",
-                LatLng: [{lat: 33.8182528, lng: -118.1447834}]
-            },
-            {
-                placeName: "ELP",
-                LatLng: [{lat: 31.8053354, lng: -106.3824345}]
-            },
-            {
-                placeName: "LIH",
-                LatLng: [{lat: 21.9788489, lng: -159.3437585}]
-            },
-            {
-                placeName: "HNL",
-                LatLng: [{lat: 21.3245132, lng: -157.9250736}]
-            },
-            {
-                placeName: "KOA",
-                LatLng: [{lat: 19.736916, lng: -156.0429246}]
-            },
-            {
-                placeName: "ITO",
-                LatLng: [{lat: 19.7188342, lng: -155.0416866}]
-            },
-            {
-                placeName: "ANC",
-                LatLng: [{lat: 61.1758863, lng: -149.9900791}]
-            },
-            {
-                placeName: "AMA",
-                LatLng: [{lat: 35.2184869, lng: -101.7052103}]
-            },
-            {
-                placeName: "DFW",
-                LatLng: [{lat: 32.8998091, lng: -97.0403352}]
-            },
-            {
-                placeName: "SAT",
-                LatLng: [{lat: 29.5311973, lng: -98.4683484}]
-            },
-            {
-                placeName: "IAH",
-                LatLng: [{lat: 29.9902199, lng: -95.3367827}]
-            },
-            {
-                placeName: "AUS",
-                LatLng: [{lat: 30.1974292, lng: -97.6663058}]
-            },
-            {
-                placeName: "OKC",
-                LatLng: [{lat: 35.393056, lng: -97.600556}]
-            },
-            {
-                placeName: "TUL",
-                LatLng: [{lat: 36.198778, lng: -95.8838659}]
-            },
-            // {
-            //     placeName: "JFK",
-            //     LatLng: [{lat: 40.6413111, lng: -73.7781391}]
-            // },
-            {
-                placeName: "OMA",
-                LatLng: [{lat: 41.2997128, lng: -95.9695264}]
-            },
-            {
-                placeName: "SGF",
-                LatLng: [{lat: 37.2380564, lng:-93.467136}]
-            },
-
-
-        ];
-
-        window.onload = function () {
-            initMap();
-        };
-        function addMarkerInfo() {
-            for (var i = 0; i < markersOnMap.length; i++) {
-                var contentString = '<div id="content"><h1>' + markersOnMap[i].placeName +
-                    '</h1><p></p></div>';
-                    // '</h1><p>Lorem ipsum dolor sit amet, vix mutat posse suscipit id, vel ea tantas omittam detraxit.</p></div>';
- 
-                const marker = new google.maps.Marker({
-                    position: markersOnMap[i].LatLng[0],
-                    map: map
-                });
- 
-                const infowindow = new google.maps.InfoWindow({
-                    content: contentString,
-                    maxWidth: 200
-                });
- 
-                marker.addListener('click', function () {
-                    closeOtherInfo();
-                    infowindow.open(marker.get('map'), marker);
-                    InforObj[0] = infowindow;
-                    });
-                }
-            }
- 
-        function closeOtherInfo() {
-            if (InforObj.length > 0) {
-                /* detach the info-window from the marker ... undocumented in the API docs */
-                InforObj[0].set("marker", null);
-                /* and close it */
-                InforObj[0].close();
-                /* blank the array */
-                InforObj.length = 0;
-            }
-        }
-        
-        function initMap() {
-            map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 3,
-                center: centerCords,
-                styles: [
-{
+        function initMap(){
+              // map options
+              var options = {
+                zoom:3,
+                center:{lat:53.3938131, lng:-7.858913},
+                // center:{lat:42.5524153, lng:9.4825537},
+                styles: [{
             "featureType": "administrative",
             "elementType": "labels.text.fill",
-            "stylers": [
-                {
-                    "color": "#444444"
-                }
-            ]
+            "stylers": [{"color": "#444444"}]
         },
         {
             "featureType": "landscape",
             "elementType": "all",
-            "stylers": [
-                {
-                    "color": "#f2f2f2"
-                }
-            ]
+            "stylers": [{"color": "#f2f2f2"}]
         },
         {
             "featureType": "poi",
             "elementType": "all",
-            "stylers": [
-                {
-                    "visibility": "off"
-                }
-            ]
+            "stylers": [{"visibility": "off"}]
         },
         {
             "featureType": "road",
             "elementType": "all",
-            "stylers": [
-                {
-                    "saturation": -100
-                },
-                {
-                    "lightness": 45
-                }
-            ]
+            "stylers": [{"saturation": -100},
+            {"lightness": 45}]
         },
         {
             "featureType": "road.highway",
             "elementType": "all",
-            "stylers": [
-                {
-                    "visibility": "simplified"
-                }
-            ]
+            "stylers": [{"visibility": "simplified"}]
         },
         {
             "featureType": "road.arterial",
             "elementType": "labels.icon",
-            "stylers": [
-                {
-                    "visibility": "off"
-                }
-            ]
+            "stylers": [{"visibility": "off"}]
         },
         {
             "featureType": "transit",
             "elementType": "all",
-            "stylers": [
-                {
-                    "visibility": "off"
-                }
-            ]
+            "stylers": [{"visibility": "off"}]
         },
         {
             "featureType": "water",
             "elementType": "all",
-            "stylers": [
-                {
-                    "color": "#46bcec"
-                },
-                {
-                    "visibility": "on"
-                }
-            ]
+            "stylers": [{"color": "#46bcec"},
+            {"visibility": "on"}]
         }
         ]
-            });
-            addMarkerInfo();
-        }
+                }
+        var map = new google.maps.Map(document.getElementById('map'),options);
+        var infoWindow;
+              // Add a marker clusterer to manage the markers.
+  
+              //Add marker
+              //My Icons
+              var markers = [{
+                  coords:{lat:39.8560963, lng:-104.6737376},
+                  // iconImage:'/images/map-icon-blue.svg',
+                  content:'<h2 class="margin-map">DEN</h2>' + '<a class="map-link" href="/images/doh-brief.pdf">learn more</a>'
+                },
+                {
+                //OGG
+                  coords:{lat:20.8967924, lng:-156.4329379},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>OGG</h2>'
+                },
+                {
+                //lAX
+                  coords:{lat:33.9415889, lng:-118.40853},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>LAX</h2>'
+                },
+                {
+                //IND
+                  coords:{lat:39.7168593, lng:-86.2955952},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>IND</h2>'
+                },
+                {
+                //PHL
+                  coords:{lat:39.8743959, lng:-75.2424229},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>PHL</h2>'
+                },
+                {
+                //ATL
+                  coords:{lat:33.6407282, lng:-84.4277001},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>ATL</h2>'
+                },
+                {
+                //SEA
+                  coords:{lat:47.4502499, lng:-122.3088165},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>SEA</h2>'
+                },
+                {
+                //PTY
+                  coords:{lat:9.0669766, lng:-79.3870681},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>PTY</h2>'
+                },
+                {
+                //PDX
+                  coords:{lat:45.5897694, lng:-122.5950942},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>PDX</h2>'
+                },
+                {
+                //GEG
+                  coords:{lat:47.6217478, lng:-117.534812},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>GEG</h2>'
+                },
+                {
+                //SMF
+                  coords:{lat:38.6950854, lng:-121.5900648},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>SMF</h2>'
+                },
+                {
+                //SFO
+                  coords:{lat:37.6213129, lng:-122.3789554},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>SFO</h2>'
+                },
+                {
+                //SJC
+                  coords:{lat:37.3639472, lng:-121.9289375},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>SJC</h2>'
+                },
+                {
+                //OAK
+                  coords:{lat:37.7125689, lng:-122.2197428},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>OAK</h2>'
+                },
+                {
+                //RNO
+                  coords:{lat:39.4995907, lng:-119.7680951},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>RNO</h2>'
+                },
+                {
+                //LAS
+                  coords:{lat:36.0839998, lng:-115.1537389},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>LAS</h2>'
+                },
+                {
+                //BOI
+                  coords:{lat:43.5658231, lng:-116.222316},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>BOI</h2>'
+                },
+                {
+                //MSO
+                  coords:{lat:46.9188167, lng:-114.0837362},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>MSO</h2>'
+                },
+                {
+                //JAC
+                  coords:{lat:43.6046209, lng:-110.7386093},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>JAC</h2>'
+                },
+                {
+                //SLC
+                  coords:{lat:40.7899404, lng:-111.9790706},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>SLC</h2>'
+                },
+                {
+                //PHX
+                  coords:{lat:33.4372686, lng:-112.0077881},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>PHX</h2>'
+                },
+                {
+                //EGE
+                  coords:{lat:39.6404475, lng:-106.9097116},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>EGE</h2>'
+                },
+                {
+                //SBA
+                  coords:{lat:34.4271935, lng:-119.8398835},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>SBA</h2>'
+                },
+                {
+                //BUR
+                  coords:{lat:34.1983122, lng:-118.3574036},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>BUR</h2>'
+                },
+                {
+                //PSP
+                  coords:{lat:33.8303194, lng:-116.5070468},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>PSP</h2>'
+                },
+                {
+                //SNA
+                  coords:{lat:33.6761901, lng:-117.8674759},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>SNA</h2>'
+                },
+                {
+                //LGB
+                  coords:{lat:33.8182528, lng:-118.1447834},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>LGB</h2>'
+                },
+                {
+                //ELP
+                  coords:{lat:31.8053354, lng:-106.3824345},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>ELP</h2>'
+                },
+                {
+                //LIH
+                  coords:{lat:21.9788489, lng:-159.3437585},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>LIH</h2>'
+                },
+                {
+                //HNL
+                  coords:{lat:21.3245132, lng:-157.9250736},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>HNL</h2>'
+                },
+                {
+                //KOA
+                  coords:{lat:19.736916, lng:-156.0429246},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>KOA</h2>'
+                },
+                {
+                //ITO
+                  coords:{lat:19.7188342, lng:-155.0416866},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>ITO</h2>'
+                },
+                {
+                //ANC
+                  coords:{lat:61.1758863, lng:-149.9900791},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>ANC</h2>'
+                },
+                {
+                //AMA
+                  coords:{lat:35.2184869, lng:-101.7052103},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>AMA</h2>'
+                },
+                {
+                //DFW
+                  coords:{lat:32.8998091, lng:-97.0403352},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>DFW</h2>'
+                },
+                {
+                //SAT
+                  coords:{lat:29.5311973, lng:-98.4683484},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>SAT</h2>'
+                },
+                {
+                //IAH
+                  coords:{lat:29.9902199, lng:-95.3367827},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>IAH</h2>'
+                },
+                {
+                //AUS
+                  coords:{lat:30.1974292, lng:-97.6663058},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>AUS</h2>'
+                },
+                {
+                //OKC
+                  coords:{lat:35.393056, lng:-97.600556},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>OKC</h2>'
+                },
+                {
+                //TUL
+                  coords:{lat:36.198778, lng:-95.8838659},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>TUL</h2>'
+                },
+                {
+                //JFK
+                  coords:{lat:40.6413111, lng:-73.7781391},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>JFK</h2>'
+                },
+                {
+                //OMA
+                  coords:{lat:41.2997128, lng:-95.9695264},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>OMA</h2>'
+                },
+                {
+                //SGF
+                  coords:{lat:37.2380564, lng:-93.467136},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>SGF</h2>'
+                },
+                {
+                //LIT
+                  coords:{lat:34.7306849, lng:-92.2916932},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>LIT</h2>'
+                },
+                {
+                //MSP
+                  coords:{lat:44.884734, lng:-93.2923244},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>MSP</h2>'
+                },
+                {
+                //MKE
+                  coords:{lat:42.9475321, lng:-87.9666859},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>MKE</h2>'
+                },
+                {
+                //TVR
+                  coords:{lat:34.7306849, lng:-92.2916932},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>TVR</h2>'
+                },
+                {
+                //DWT
+                  coords:{lat:42.2161509, lng:-83.4254241},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>DWT</h2>'
+                },
+                {
+                //CLE
+                  coords:{lat:41.4124127, lng:-81.9180324},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>CLE</h2>'
+                },
+                {
+                //ORD
+                  coords:{lat:41.9741412, lng:-87.9773613},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>ORD</h2>'
+                },
+                {
+                //SPI
+                  coords:{lat:39.8440799, lng:-89.7479422},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>SPI</h2>'
+                },
+                {
+                //PIA
+                  coords:{lat:40.6666196, lng:-89.761666},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>PIA</h2>'
+                },
+                {
+                //STL
+                  coords:{lat:38.743112, lng:-90.4351345},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>SLT</h2>'
+                },
+                {
+                //MEM
+                  coords:{lat:35.0420478, lng:-90.049213},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>MEM</h2>'
+                },
+                {
+                //BNA
+                  coords:{lat:36.1262966, lng:-86.7474114},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>BNA</h2>'
+                },
+                {
+                //BTV
+                  coords:{lat:44.4706725, lng:-73.2216435},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>BTV</h2>'
+                },
+                {
+                //PWM
+                  coords:{lat:43.6464571, lng:-70.3797372},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>PWM</h2>'
+                },
+                {
+                //BUF
+                  coords:{lat:42.9396846, lng:-78.7995466},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>BUF</h2>'
+                },
+                {
+                //ROC
+                  coords:{lat:43.1225015, lng:-77.736612},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>ROC</h2>'
+                },
+                {
+                //HPN
+                  coords:{lat:41.0683113, lng:-73.778704},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>HPN</h2>'
+                },
+                {
+                //BOS
+                  coords:{lat:42.3655919, lng:-71.0796001},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>BOS</h2>'
+                },
+                {
+                //ACK
+                  coords:{lat:1.2569304, lng:-70.1337905},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>ACK</h2>'
+                },
+                {
+                //PVD
+                  coords:{lat:41.7245058, lng:-71.5004461},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>PVD</h2>'
+                },
+                {
+                //BLD
+                  coords:{lat:41.9388522, lng:-72.7560713},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>BLD</h2>'
+                },
+                {
+                //EWR
+                  coords:{lat:40.6895102, lng:-74.2445023},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>EWR</h2>'
+                },
+                {
+                //PIT
+                  coords:{lat:40.4957511, lng:-80.3113512},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>PIT</h2>'
+                },
+                {
+                //MDT
+                  coords:{lat:40.1942164, lng:-76.8277071},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>MDT</h2>'
+                },
+                {
+                //BWI
+                  coords:{lat:39.1773832, lng:-76.7384322},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>BWI</h2>'
+                },
+                {
+                //ACY
+                  coords:{lat:39.4512906, lng:-74.6422364},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>ACY</h2>'
+                },
+                {
+                //ORF
+                  coords:{lat:36.8956631, lng:-76.2700561},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>ORF</h2>'
+                },
+                {
+                //RDU
+                  coords:{lat:35.8800587, lng:-78.8580364},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>RDU</h2>'
+                },
+                {
+                //CLT
+                  coords:{lat:35.2143824, lng:-81.0173547},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>CLT</h2>'
+                },
+                {
+                //MYR
+                  coords:{lat:33.6821821, lng:-78.9979344},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>MYR</h2>'
+                },
+                {
+                //BHM
+                  coords:{lat:33.5624072, lng:-86.8241661},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>BHM</h2>'
+                },
+                {
+                //PIM
+                  coords:{lat:32.8406675, lng:-84.9524712},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>PIM</h2>'
+                },
+                {
+                //TLH
+                  coords:{lat:30.3957243, lng:-84.4151642},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>TLH</h2>'
+                },
+                {
+                //MCO
+                  coords:{lat:28.4311398, lng:-81.3781233},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>MCO</h2>'
+                },
+                {
+                //JAX
+                  coords:{lat:30.4940526, lng:-81.757977},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>JAX</h2>'
+                },
+                {
+                //PNS
+                  coords:{lat:30.4737971, lng:-87.2567451},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>PNS</h2>'
+                },
+                {
+                //TPA
+                  coords:{lat:27.9834776, lng:-82.5370781},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>TPA</h2>'
+                },
+                {
+                //MIA
+                  coords:{lat:25.7958482, lng:-80.357086},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>MIA</h2>'
+                },
+                {
+                //LEX
+                  coords:{lat:38.0377407, lng:-84.6726483},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>LEX</h2>'
+                },
+                {
+                //SDF
+                  coords:{lat:38.1756412, lng:-85.8069631},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>SDF</h2>'
+                },
+                {
+                //GRR
+                  coords:{lat:42.884642, lng:-85.5948833},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>GRR</h2>'
+                },
+                {
+                //HKG
+                  coords:{lat:22.308047, lng:113.9184808},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>HKG</h2>'
+                },
+                {
+                //PEK
+                  coords:{lat:40.0798573, lng:116.6031121},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>PEK</h2>'
+                },
+                {
+                //CTU
+                  coords:{lat:30.567456, lng:103.9492936},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>CTU</h2>'
+                },
+                {
+                //SDQ
+                  coords:{lat:18.4321442, lng:-69.6731424},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>SDQ</h2>'
+                },
+                {
+                //STT
+                  coords:{lat:18.3360608, lng:-64.9722726},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>STT</h2>'
+                },
+                {
+                //SJU
+                  coords:{lat:18.4373547, lng:-66.0044727},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>SJU</h2>'
+                },
+                {
+                //EZE
+                  coords:{lat:-34.8150044, lng:-58.5348284},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>EZE</h2>'
+                },
+                {
+                //BIA
+                  coords:{lat:42.5524153, lng:9.4825537},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>BIA</h2>'
+                },
+                {
+                //BRU
+                  coords:{lat:50.900999, lng:4.4855744},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>BRU</h2>'
+                },
+                {
+                //LHR
+                  coords:{lat:51.4700223, lng:-0.4542955},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>LHR</h2>'
+                },
+                {
+                //MAN
+                  coords:{lat:53.3588026, lng:-2.2727303},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>MAN</h2>'
+                },
+                {
+                //MAD
+                  coords:{lat:40.4839361, lng:-3.5679515},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>MAD</h2>'
+                },
+                {
+                //FCO
+                  coords:{lat:41.7998868, lng:12.2462384},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>FCO</h2>'
+                },
+                {
+                //AMS
+                  coords:{lat:41.7998868, lng:12.2462384},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>AMS</h2>'
+                },
+                {
+                //TLV
+                  coords:{lat:32.005532, lng:34.8854112},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>TLV</h2>'
+                },
+                {
+                //DEL
+                  coords:{lat:28.5561624, lng:77.0999578},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>DEL</h2>'
+                },
+                {
+                //DOH
+                  coords:{lat:25.2605946, lng:51.6137665},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>DOH</h2>'
+                },
+                {
+                //JED
+                  coords:{lat:21.6706675, lng:39.1504721},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>JED</h2>'
+                },
+                {
+                //AUH
+                  coords:{lat:24.441938, lng:54.6500736},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>AUH</h2>'
+                },
+                {
+                //UAL
+                  coords:{lat:10.7158333, lng:22.2311111},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>UAL</h2>'
+                },
+                {
+                //LXA
+                  coords:{lat:29.2892521, lng:90.9006231},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>LXA</h2>'
+                },
+                {
+                //BOM
+                  coords:{lat:19.0895595, lng:72.8656144},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>BOM</h2>'
+                },
+                {
+                //MAA
+                  coords:{lat:12.994112, lng:80.1708668},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>MAA</h2>'
+                },
+                {
+                //SIN
+                  coords:{lat:1.3644202, lng:103.9915308},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>SIN</h2>'
+                },
+                {
+                //BKK
+                  coords:{lat:13.6899991, lng:100.7501124},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>BKK</h2>'
+                },
+                {
+                //KUL
+                  coords:{lat:2.7540214, lng:101.7046989},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>KUL</h2>'
+                },
+                {
+                //ABU
+                  coords:{lat:-9.0746234, lng:124.9060497},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>ABU</h2>'
+                },
+                {
+                //GUM
+                  coords:{lat:13.4856448, lng:144.8001467},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>GUM</h2>'
+                },
+                {
+                //TPE
+                  coords:{lat:25.0796514, lng:121.234217},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>TPE</h2>'
+                },
+                {
+                //MEL
+                  coords:{lat:-37.6690123, lng:144.8410273},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>MEL</h2>'
+                },
+                {
+                //KEF
+                  coords:{lat:63.9868067, lng:-22.6279668},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>KEF</h2>'
+                },
+                {
+                //TLL
+                  coords:{lat:59.4141383, lng:24.8333752},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>TLL</h2>'
+                },
+                {
+                //MEX
+                  coords:{lat:19.4360762, lng:-99.0719083},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>MEX</h2>'
+                },
+                {
+                //CPH
+                  coords:{lat:55.6180236, lng:12.6507628},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>CPH</h2>'
+                },
+                {
+                //BNE
+                  coords:{lat:-27.3942144, lng:153.1218303},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>BNE</h2>'
+                },
+                {
+                //SYD
+                  coords:{lat:-33.9399228, lng:151.1752764},
+                //   iconImage:'assets/img/places/stparkdublin.png',
+                  content:'<h2>SYD</h2>'
+                },
+            
+                // //Dublin
+                // {
+                //   coords:{lat:53.338741, lng:-6.261563},
+                // //   iconImage:'assets/img/places/stparkdublin.png',
+                //   content:'<h1>St Stephen’s Green</h1>'+ '<br>' + '<h2>Learn More</h2>' 
+                // },
+                // {
+                //     //This one works!
+                //   coords:{lat:53.3755012,lng:-6.2735677},
+                //   iconImage:'assets/img/places/botanic garden.png',
+                //   content:'<h1>Botanic Garden</h1>' + '<br>' + '<h2>Learn More</h2>' + '<a href="/images/doh-brief.pdf">test</a>'
+                // },
+                // {
+                //   coords:{lat:53.355998576, lng:-6.32166538},
+                //   iconImage:'assets/img/places/stparkdublin.png',////////////////////add picture
+                //   content:'<h1>Phoenix Park</h1>' + '<br>' + '<h2>Learn More</h2>' + '<a>http://phoenixpark.ie/</a>'
+                // },
+                // {
+                //   coords:{lat:53.460259, lng:-6.219985},
+                //   iconImage:'assets/img/places/swordscastle.png',
+                //   content:'<h1>Swords Castle</h1>'+ '<br>' + '<h2>Learn More</h2>' + '<a>https://swordscastle.events/</a>'
+                // },
+                // {
+                //   coords:{lat:53.37923, lng:-6.07201},
+                //   iconImage:'assets/img/places/Howth.png',
+                //   content:'<h1>Howth</h1>'+ '<br>' + '<h2>Learn More</h2>' + '<a>http://www.visithowth.ie/</a>'
+                // },
+                // {
+                //   coords:{lat:55.1364, lng:-7.456},
+                //   iconImage:'assets/img/places/buncrana1.png',
+                //   content:'<h1>Buncrana</h1>' + '<p>hello all</p>'
+                // },
+        
+                // {
+                //   coords:{lat:53.152999388, lng:-6.1499994},
+                //   iconImage:'assets/img/places/sugarloaf_icon.png',
+                //   content:'<h1>Great sugar loaf</h1>'+ '<br>' + '<h2>Learn More</h2>' + '<a>http://visitwicklow.ie/item/the-sugarloaf-trail/</a>'
+                // },
+                // {
+                //   coords:{lat:52.0058, lng:-9.5562},
+                //   iconImage:'assets/img/places/killarney.png',
+                //   content:'<h1>Killarney National Park </h1>'+ '<br>' + '<h2>Learn More</h2>' + '<a>https://www.killarneynationalpark.ie/</a>'
+                // },
+                // {
+                //   coords:{lat:51.942662896, lng:-9.917162998},
+                //   iconImage:'assets/img/places/clifs.png',
+                //   content:'<h1>Ring of Kerry</h1>'+ '<br>' + '<h2>Learn More</h2>' + '<a>https://ringofkerrytourism.com/</a>'
+                // },
+                // {
+                //   coords:{lat:52.679, lng:-7.814},
+                //   iconImage:'assets/img/places/clifs.png',//add picture!!!!!!!!!!!!!!!
+                //   content:'<h1>Thurles</h1>'+ '<br>' + '<h2>Learn More</h2>' + '<a>https://www.tipperary.com/thurles</a>'
+                // },
+                // {
+                //   coords:{lat:52.348, lng:-6.517},
+                //   iconImage:'assets/img/places/wexford museum.png',
+                //   content:'<h1>Irish National Heritage Park</h1>'+ '<br>' + '<h2>Learn More</h2>' + '<a>http://www.irishheritage.ie/</a>'
+                // },
+                // {
+                //   coords:{lat:53.018, lng:-6.398},
+                //   iconImage:'assets/img/places/wicklow.png',
+                //   content:'<h1> Wicklow Mountains National Park</h1>'+ '<br>' + '<h2>Learn More</h2>' + '<a>https://www.wicklowmountainsnationalpark.ie/</a>'
+                // },
+                // {
+                //   coords:{lat:53.011299, lng:   -6.326156},
+                //   iconImage:'assets/img/places/glendalough.png',
+                //   content:'<h1> Glendalough </h1>'+ '<br>' + '<h2>Learn More</h2>' + '<a>http://www.glendalough.ie/</a>'
+                // },
+                // {
+                //   coords:{lat:53.1876492494, lng:-6.083832998},
+                //   iconImage:'assets/img/places/Bray.png',
+                //   content:'<h1> Bray</h1>'+ '<br>' + '<h2>Learn More</h2>' + '<a>http://www.bray.ie/</a>'
+                // },
+                // {
+                //   coords:{lat:53.144, lng: -6.072},
+                //   iconImage:'assets/img/places/greystones.png',
+                //   content:'<h1>Greystones</h1>'+ '<br>' + '<h2>Learn More</h2>' + '<a>http://visitwicklow.ie/item/greystones/</a>'
+                // },
+                // {
+                //   coords:{lat:52.518664592, lng:-7.887329784},
+                //   iconImage:'assets/img/places/Cashel.png',
+                //   content:'<h1>Rock of Cashel</h1>'+ '<br>' + '<h2>Learn More</h2>' + '<a>https://www.cashel.ie/</a>'
+                // },
+                // {
+                //   coords:{lat:52.6477, lng: -7.2561},
+                //   iconImage:'assets/img/places/kilkenny.png',
+                //   content:'<h1>Killenny</h1>'+ '<br>' + '<h2>Learn More</h2>' + '<a>https://visitkilkenny.ie/</a>'
+                // },
+                // //cork
+                // {
+                //   coords:{lat:51.902694, lng:-8.4767},
+                //   iconImage:'assets/img/places/butterCork.png',
+                //   content:'<h1>Museum of Butter</h1>'+ '<br>' + '<h2>Learn More</h2>' + '<a>http://thebuttermuseum.com/</a>'
+                // },
+                // {
+                //   coords:{lat:51.89953, lng:-8.499022},
+                //   iconImage:'assets/img/places/prisoncork.png',
+                //   content:'<h1>Cork City Gaol</h1>'+'<br>' + '<h2>Learn More</h2>' + '<a>https://corkcitygaol.com/</a>'
+                // },
+        
+                // {
+                //   coords:{lat:53.4513204, lng:-6.140871},
+                //   iconImage:'assets/img/places/malahideB.png',
+                //   content:'<h1>Malahide</h1>'+'<br>' + '<h2>Learn More</h2>' + '<a>https://www.malahide.ie/</a>'
+                // },
+        
+                // {
+                //   coords:{lat:53.2839577, lng:-9.0837658},
+                //   iconImage:'assets/img/places/galway.png',
+                //   content:'<h1>Galway</h1>'+'<br>' + '<h2>Learn More</h2>' + '<a>https://www.galwaytourism.ie/</a>'
+                // },
+                // {
+                //   coords:{lat:53.470580, lng:-6.122405},
+                //   iconImage:'assets/img/places/galway.png',
+                //   content:'<h1>Donabate Beach</h1>'+'<br>' + '<h2>Learn More</h2>' + '<a>https://en.wikipedia.org/wiki/Donabate</a>'
+                // },
+                // {
+                //   coords:{lat:52.9713299, lng:-9.4300415},
+                //   iconImage:'assets/img/places/clifsofmoher.png',
+                //   content:'<h1>Donabate Beach</h1>'+'<br>' + '<h2>Learn More</h2>' + '<a>https://www.cliffsofmoher.ie/</a>'
+                // },
+                // {
+                //   coords:{lat:51.8960528, lng:-8.4980693},
+                //   iconImage:'assets/img/places/Cork.png',
+                //   content:'<h1>Cork</h1>'+'<br>' + '<h2>Learn More</h2>' + '<a>https://purecork.ie/</a>'
+                // },
+                // {
+                //   coords:{lat:53.3667776, lng:-6.5064198},
+                //   iconImage:'assets/img/places/Leixlip.png',
+                //   content:'<h1>Leixlip</h1>'+'<br>' + '<h2>Learn More</h2>' + '<a>https://pl.wikipedia.org/wiki/Leixlip</a>'
+                // },
+                // {
+                //   coords:{lat:53.1654628, lng:-6.125499},
+                //   iconImage:'assets/img/places/littlesugarloaf.png',
+                //   content:'<h1>Little Sugar Loaf</h1>'+'<br>' + '<h2>Learn More</h2>' + '<a>https://www.greystonesguide.ie/little-sugar-loafs-big-day/</a>'
+                // },
+                // {
+                //   coords:{lat:53.5474019, lng:-6.0933048},
+                //   iconImage:'assets/img/places/rockabill view.png',
+                //   content:'<h1>Rockabill View</h1>'+'<br>' + '<h2>Learn More</h2>' + '<a>http://www.skerriesseatours.ie/trips.html</a>'
+                // },
+                // {
+                //   coords:{lat:52.3337499, lng:-6.4906996},
+                //   iconImage:'assets/img/places/wexford.png',
+                //   content:'<h1>Wexford</h1>'+'<br>' + '<h2>Learn More</h2>' + '<a>https://www.visitwexford.ie/</a>'
+                // },
+              ];
+        
+              // Loop through markers
+              var gmarkers = [];
+              for(var i = 0; i < markers.length; i++){
+                gmarkers.push(addMarker(markers[i]));
+              }
+        
+              //Add Marker function
+              function addMarker(props) {
+                var marker = new google.maps.Marker({
+                  position:props.coords,
+                  map: map
+                });
+                
+                if(props.iconImage){
+                  marker.setIcon(props.iconImage);
+                } 
+        
+                //Check content
+                if(props.content){
+                  var infoWindow = new google.maps.InfoWindow({
+                    content:props.content
+                  });
+                  marker.addListener('click',function(){
+                    infoWindow.open(map,marker);
+                  });
+                  // marker.addListener('click',function(){
+                  //   infoWindow.close(marker);
+                  // });
+                }
+                return marker;
+              }
+            var markerCluster = new MarkerClusterer(map, gmarkers, 
+              {
+                imagePath:
+                // 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'
+                '/images/m'
+              });
+            }
+          // google.maps.event.addDomListener(window, 'load', initMap)
+        </script>
+    <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js">
     </script>
+    <!-- <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap">
+    </script> -->
 </head>
+
+
 <body>
     <header>
         <nav>
@@ -417,7 +1018,7 @@
         </nav>
     </header>
 
-    <div id="map" class="margin-med"></div> 
+    <!-- <div id="map" class="margin-med"></div>  -->
     
    <main>
         <div class="general-padding">

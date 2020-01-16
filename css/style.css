@@ -31,6 +31,7 @@ h1 {
 h2 {
     font-family: 'roboto condensed', sans-serif;
     font-weight: 300;
+    
 }
 h3 {
     font-weight: 500;
@@ -68,7 +69,7 @@ ul {
 .main-headings {
     /* text-align: center; */
     /* margin-bottom: 50px; */
-    max-width: 1600px;
+    max-width: 1300px;
     margin: 0 auto;
 }
 
@@ -108,7 +109,7 @@ input {
 }
 input:focus {
     outline:none;
-    border-color:#3fa0ff;
+    border-color:#0096DB;
     box-shadow:0 0 10px #9ecaed;
     -webkit-box-shadow: 0 0 10px #9ecaed;
     -moz-box-shadow: 0 0 10px #9ecaed; 
@@ -117,7 +118,7 @@ input:focus {
 }
 textarea:focus {
     outline:none;
-    border-color:#3fa0ff;
+    border-color:#0096DB;
     box-shadow:0 0 10px #9ecaed;
     -webkit-box-shadow: 0 0 10px #9ecaed;
     -moz-box-shadow: 0 0 10px #9ecaed; 
@@ -142,6 +143,17 @@ textarea {
     -moz-appearance: none;
     appearance: none;   
 }
+.map-link {
+    /* text-transform: uppercase; */
+    font-size: 12px;
+    font-weight: 400;
+    transition: all .2s;
+    /* color: #0074e5;  */
+    color: #0096DB;
+}
+.map-link:hover {
+    color: #0096DB;
+}
 
 
 /****************************/
@@ -149,6 +161,37 @@ textarea {
 /****************************/
 
 /*** Variables ***/
+
+/*** Colors in use ***/
+.b-blue {
+    color: #0096DB !important;
+}
+.b-blue-hover {
+    color: #0078db !important;
+}
+.l-blue-dark {
+    color: #003478 !important;
+}
+.l-blue-link {
+    color: #337ab7 !important;
+}
+
+
+
+.b-blue-dark {
+    color: #002144 !important;
+}
+
+.l-blue {
+    color: #099bca !important;
+}
+.l-light-grey {
+    background-color: #e2e9ec;
+}
+.p-light-grey {
+    background-color: #e7f0f3;
+}
+
 
 .background-white {
     background-color: #ffffff;
@@ -204,13 +247,17 @@ textarea {
 /*** Utilities ***/
 
 .margin-top-sm {
-    margin-top: 5px !important;
+    margin-top: 10px !important;
 }
 .margin-top-med {
     margin-top: 10px !important;
 }
 
 
+.margin-map {
+    margin-bottom: 3px !important;
+    
+}
 .margin-xs {
     margin-bottom: 10px !important;
 }
@@ -238,7 +285,7 @@ textarea {
 }
 
 .block {
-    display: block;
+    display: block !important;
 }
 
 /*** Feature Box Margins ***/
@@ -255,10 +302,52 @@ textarea {
 /* COMPONENTS */
 /****************************/
 
+/*** Text ***/
+
+.general-text-wrapper {
+    max-width: 1300px;
+    height: auto;
+    margin: 0 auto;
+}
+
+.nav-small {
+    display: flex;
+    justify-content: flex-start;
+    max-width: 300px;
+    padding: 1rem 0rem;
+    margin-top: 100px;
+}
+
 /*** Heros ***/
 
+/*** Hero Divider ***/
+
+/* .hero-divider {
+    width: 1300px;
+    height: 350px;
+    background-image: url(/images/contact-hero.jpg);
+    background-color: lightgray;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }  
+  .hero-divider__text-container {
+    text-align: center;
+    width: 1300px;
+    color: white;
+    border: 1px solid black;
+} */
+
+
+/*** Hero Main ***/
+.hero-secondary-sm {
+    height: 403px;
+    width: 100%;
+  }  
 .hero-secondary {
-    height: 600px;
+    height: 550px;
     /* background-image: url(/images/contact-hero.jpg); */
     background-color: lightgray;
     background-size: cover;
@@ -273,9 +362,20 @@ textarea {
   .--contact {
        background-image: url();
   } 
+  .--services {
+    background-image: 
+    linear-gradient(
+    rgba(0, 0, 0, 0.0),
+    rgba(0, 0, 0, 0.0)), 
+     url(/images/services-hero.jpg);
+    /* background-size: cover;
+    background-position: center center;  */
+  } 
   .hero-secondary__text-container {
+      /* text-align: center; */
+      margin-top: 100px;
       width: 1300px;
-      color: white;
+      color: #333333;
       /* border: 1px solid black; */
   }
   .hero-secondary__header {
@@ -292,7 +392,8 @@ textarea {
 .btn-general {
     text-align: center;
     color: white;
-    background-color: #3fa0ff;
+    /* background-color: #3fa0ff; */
+    background-color: #0096DB;
     height: 40px;
     width: 130px;
     font-family: 'roboto condensed', sans-serif;
@@ -303,14 +404,16 @@ textarea {
     border-radius: 2px;
 }
 .btn-general:hover {
-    background-color: #0074e5;  
+    /* background-color: #0074e5;   */
+    background-color: #0078db; 
 }
 .btn-01 {
     width: 130px;
     height: 40px; 
     text-align: center;
     color: white;
-    background-color: #3fa0ff;
+    /* background-color: #3fa0ff; */
+    background-color: #0096DB;
     padding: 11px 20px 11px 20px;
     margin: 0px 20px 0px 0px; 
     font-family: 'roboto condensed', sans-serif;
@@ -321,7 +424,7 @@ textarea {
     border: none;
 }
 .btn-01:hover {
-    background-color: #0074e5;
+    background-color: #0078db;
     cursor: pointer;  
 }
 .btn-adjust {
@@ -336,11 +439,13 @@ textarea {
 
 .feature-box-img {
     max-width: 600px;
-
     /* delete these settings when adding img */
     height: 425px;
-    background-color: rgb(233, 233, 233);
+    /* background-color: rgb(233, 233, 233); */
     /* margin: 0 auto; */
+}
+.feature-box-text__header {
+    color: #003478;
 }
 .careers__img {
     width: 100%;
@@ -486,7 +591,7 @@ textarea {
     font-size: 4.5rem;
     margin-bottom: .5rem;
     display: inline-block;
-    background-image: linear-gradient(to right, #3fa0ff, #3fa0ff);
+    background-image: linear-gradient(to right, #0096DB, #0096DB);
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
@@ -497,7 +602,6 @@ textarea {
 
 
 /*** Dropdowns ***/
-
 
 .dropdown {
     width: 100%; 
@@ -522,7 +626,7 @@ textarea {
 .chevron-style {
     font-size: 1.5rem;
     display: inline-block;
-    background-image: linear-gradient(to right, #3fa0ff, #3fa0ff);
+    background-image: linear-gradient(to right, #0096DB, #0096DB);
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent; 
@@ -578,9 +682,18 @@ textarea {
     font-weight: 300;
     color: #333333;   
 }
+.left-headings-header {
+    font-size: 40px;
+    color: #333333;
+}
 .center-headings__header {
     text-align: center;
     font-size: 40px; 
+    color: #333333;   
+}
+.center-headings__header-services {
+    text-align: center;
+    font-size: 30px; 
     color: #333333;   
 }
 .center-headings__text {
@@ -598,11 +711,13 @@ textarea {
 /****************************/
 /* PAGES-INDEX */
 /****************************/
+
 /*** Contact ***/
 
 .section-contact-map {
     padding: 4.7rem 0;
 }
+
 /*** Careers ***/
 
 /* .section-careers-hero { */
@@ -617,7 +732,6 @@ textarea {
     background-color: #f3f3f3;
     padding: 3.2rem 0 4.7rem 0;
 }
-
 .section-careers-why-bnp {
     background-color: #fff;
     padding: 4.7rem 0;
@@ -630,6 +744,24 @@ textarea {
     background-color: #ffffff;
     padding: 4.7rem 0;
 }
+
+/*** Services ***/
+
+.section-services-apron {
+    justify-content: center;
+    background-color: #ffffff;
+    padding-top: 3.2rem;
+    padding-bottom: 4.7rem;
+}
+.section-services-hero-label {
+    background-color: #edf3f5;
+    padding: 2.7rem 0;
+}
+.section-services-text {
+    padding-top: 3.2rem;
+}
+
+
 
 
 /*** Navigation ***/
@@ -726,20 +858,22 @@ nav li a:after {
     display: block;
     margin-top: 15px;
     right: 0;
-    background: #3fa0ff;
+    /* background: #3fa0ff; */
+    background: #0096DB ;
     transition: width .3s ease-in-out;
     -webkit-transition: width .15s ease-in-out;
 }
 nav a.current {
-    border-bottom: 3px solid #3fa0ff;
-    /* color: #aaaaaa; */
-    color: #3fa0ff;
-    /* font-weight: 700; */
+    /* border-bottom: 3px solid #3fa0ff; */
+    border-bottom: 3px solid #0096DB ;
+    /* color: #3fa0ff; */
+    color: #0096DB ;
 }
 nav li a:hover:after {
     width: 100%;
     left: 0;
-    background: #3fa0ff;
+    /* background: #3fa0ff; */
+    background: #0096DB ;
 }  
 .bnp-logo {
     position: relative;
@@ -876,7 +1010,8 @@ nav li a:hover:after {
     text-align: center;
 }
 .wrapper-asd h2 {
-    color: #369ccc; 
+    /* color: #369ccc;  */
+    /* font-size: 40px; */
     text-transform: uppercase;   
 }
 .sub-heading {
@@ -944,7 +1079,8 @@ nav li a:hover:after {
     font-size: 22px;
 }
 .card:hover .btn-general {
-    background-color: #0074e5;  
+    /* background-color: #0074e5;   */
+    background-color: #0078db; 
 }
 .card:hover {
     box-shadow: none;
@@ -989,8 +1125,9 @@ nav li a:hover:after {
     border: none;
     width: 100px;
     background-color: white;
-    border: 1px solid #3fa0ff;
-    color: #666666;
+    /* border: 1px solid #3fa0ff; */
+    border: 1px solid #0096DB;
+    color: #0096DB;
     font-family: 'roboto condensed', sans-serif;
     text-transform: uppercase;
     font-size: .9rem;
@@ -1001,8 +1138,10 @@ nav li a:hover:after {
     border: none;
     width: 120px;
     background-color: white;
-    border: 1px solid #3fa0ff;
-    color: #666666;
+    /* border: 1px solid #3fa0ff; */
+    border: 1px solid #0096DB;
+    /* color: #666666; */
+    color: #0096DB;
     font-family: 'roboto condensed', sans-serif;
     text-transform: uppercase;
     font-size: .9rem;
@@ -1010,11 +1149,11 @@ nav li a:hover:after {
     border-radius: 2px;
 }
 .submit-btn:hover {
-    background-color: #3fa0ff;
+    background-color: #0078db;
     color: white; 
 }
 .submit-btn-02:hover {
-    background-color: #3fa0ff;
+    background-color: #0078db;
     color: white; 
 }
 
@@ -1030,8 +1169,6 @@ nav li a:hover:after {
         rgba(rgba(63,160,255,1.0))
     );
 }
-
-
 
 
 
@@ -1082,13 +1219,14 @@ footer ul {
     width: 110px;
     width: 75px;
     height: 3px;
-    background-color: #3fa0ff;
+    /* background-color: #3fa0ff; */
+    background-color: #0096DB;
     margin: 10px 0px 10px 0px;
 }
 .divider-02 {
     width: 75px;
     height: 3px;
-    background-color: #3fa0ff;
+    background-color: #0096DB;
     /* margin: 10px 0px 30px 0px; */
 }
 .map-footer {
@@ -1148,9 +1286,14 @@ footer ul {
 /****************************/
 /* projects */
 /****************************/
+.iconImage {
+    width: 20px;
+    height: 20px;
+}
 
 #map {
     height: 650px;
+    height: 80vh;
     width: 100%;
 }
 .briefs-container {
@@ -1586,7 +1729,8 @@ footer ul {
 }
 .contact-link {
     display: inline-block;
-    color: #19AAE0;
+    /* color: #19AAE0; */
+    color: #337ab7;
     font-weight: 500;
 }
 .contact-link:hover {
