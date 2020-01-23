@@ -6,6 +6,40 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>projects</title>
     <link rel="stylesheet" href="css/style.css">
+    <header>
+      <nav>
+          <a href="index.html"><div class="bnp-logo"> 
+          </div></a>
+          <ul class="nav-links">
+              <li>
+                  <a href="about.html">About us</a>
+              </li>
+              <li>
+                  <a href="services.html">Services</a>
+              </li>
+              <li>
+                  <a  class="current" href="projects.html">Projects</a>
+              </li>
+              <li>
+                  <a href="contact.html">Contact</a>
+              </li>
+              <li>
+                  <a href="careers.html">Careers</a>
+              </li>
+              <li>
+                  <a href="news.html">News</a>
+              </li>
+              <!-- <li>
+                  <a href="#">Portal</a>
+              </li> -->
+          </ul>
+          <div class="burger">
+              <div class="line1"></div>
+              <div class="line2"></div>
+              <div class="line3"></div>
+          </div>
+      </nav>
+  </header>
 
     <div id="map" class="margin-med"></div>
     <script>
@@ -14,7 +48,7 @@
               // map options
               var options = {
                 zoom:3,
-                center:{lat:53.3938131, lng:-7.858913},
+                center:{lat:40.4983322, lng:-3.5675982},
                 // center:{lat:42.5524153, lng:9.4825537},
                 styles: [{
             "featureType": "administrative",
@@ -68,8 +102,8 @@
               //My Icons
               var markers = [{
                   coords:{lat:39.8560963, lng:-104.6737376},
-                  // iconImage:'/images/map-icon-blue.svg',
-                  content:'<h2 class="margin-map">DEN</h2>' + '<a class="map-link" href="/images/doh-brief.pdf">learn more</a>'
+                  iconImage:'/images/map-icon-alt.svg',
+                  content:'<h2 class="margin-map">DEN</h2>' + '<a class="map-link" href="/briefs/DEN.pdf" target="_blank">DEN BHS</a>' 
                 },
                 {
                 //OGG
@@ -99,7 +133,11 @@
                 //ATL
                   coords:{lat:33.6407282, lng:-84.4277001},
                 //   iconImage:'assets/img/places/stparkdublin.png',
-                  content:'<h2>ATL</h2>'
+                iconImage:'/images/map-icon-alt.svg',
+                content:'<h2 class="margin-map">ATL</h2>' + '<a class="map-link" href="/briefs/ATL Delta Lobby.pdf" target="_blank">ATL Delta Lobby</a><br>' 
+                + '<a class="map-link" href="/briefs/ATL LMOD Curbside Design.pdf" target="_blank">ATL LMOD Curbside Design</a><br>' 
+                + '<a class="map-link" href="/briefs/ATL Masterplan Delta.pdf" target="_blank">ATL Masterplan Delta</a><br>' 
+                + '<a class="map-link" href="/briefs/ATL N. Terminal Improvement.pdf" target="_blank">ATL N. Terminal Improvement</a><br>' 
                 },
                 {
                 //SEA
@@ -122,8 +160,8 @@
                 {
                 //GEG
                   coords:{lat:47.6217478, lng:-117.534812},
-                //   iconImage:'assets/img/places/stparkdublin.png',
-                  content:'<h2>GEG</h2>'
+                  iconImage:'/images/map-icon-alt.svg',
+                  content:'<h2 class="margin-map">GEG</h2>' + '<a class="map-link" href="/briefs/GEG.pdf" target="_blank">GEG</a><br>' 
                 },
                 {
                 //SMF
@@ -194,9 +232,9 @@
                 {
                 //EGE
                   coords:{lat:39.6404475, lng:-106.9097116},
-                //   iconImage:'assets/img/places/stparkdublin.png',
-                  content:'<h2>EGE</h2>'
-                },
+                  iconImage:'/images/map-icon-alt.svg',
+                  content:'<h2 class="margin-map">EGE</h2>' + '<a class="map-link" href="/briefs/EGE CBIS.pdf" target="_blank">EGE CBIS</a><br>' 
+                  },
                 {
                 //SBA
                   coords:{lat:34.4271935, lng:-119.8398835},
@@ -230,8 +268,8 @@
                 {
                 //ELP
                   coords:{lat:31.8053354, lng:-106.3824345},
-                //   iconImage:'assets/img/places/stparkdublin.png',
-                  content:'<h2>ELP</h2>'
+                  iconImage:'/images/map-icon-alt.svg',
+                  content:'<h2 class="margin-map">ELP</h2>' + '<a class="map-link" href="/briefs/ELP.pdf" target="_blank">ELP</a><br>' 
                 },
                 {
                 //LIH
@@ -242,8 +280,8 @@
                 {
                 //HNL
                   coords:{lat:21.3245132, lng:-157.9250736},
-                //   iconImage:'assets/img/places/stparkdublin.png',
-                  content:'<h2>HNL</h2>'
+                  iconImage:'/images/map-icon-alt.svg',
+                  content:'<h2 class="margin-map">HNL</h2>' + '<a class="map-link" href="/briefs/HNL Lobby.pdf" target="_blank">HNL Lobby</a><br>' 
                 },
                 {
                 //KOA
@@ -272,8 +310,9 @@
                 {
                 //DFW
                   coords:{lat:32.8998091, lng:-97.0403352},
-                //   iconImage:'assets/img/places/stparkdublin.png',
-                  content:'<h2>DFW</h2>'
+                  iconImage:'/images/map-icon-alt.svg',
+                  content:'<h2 class="margin-map">DFW</h2>' + '<a class="map-link" href="/briefs/DFW IT Refresh.pdf" target="_blank">DFW IT Refresh</a><br>'
+                  + '<a class="map-link" href="/briefs/DFW IT Refresh 1509.pdf" target="_blank">DFW IT Refresh 1509</a><br>'
                 },
                 {
                 //SAT
@@ -291,7 +330,11 @@
                 //AUS
                   coords:{lat:30.1974292, lng:-97.6663058},
                 //   iconImage:'assets/img/places/stparkdublin.png',
-                  content:'<h2>AUS</h2>'
+                iconImage:'/images/map-icon-alt.svg',
+                content:'<h2 class="margin-map">AUS</h2>' + '<a class="map-link" href="/briefs/AUS Enhancement.pdf" target="_blank">AUS Enhancement</a><br>' 
+                  + '<a class="map-link" href="/briefs/AUS Master Plan.pdf" target="_blank">AUS Master Plan</a><br>' 
+                  + '<a class="map-link" href="/briefs/AUS Recap.pdf" target="_blank">AUS Recap</a><br>' 
+                  + '<a class="map-link" href="/briefs/AUS TEIP.pdf" target="_blank">AUS TEIP</a><br>' 
                 },
                 {
                 //OKC
@@ -325,7 +368,7 @@
                 },
                 {
                 //LIT
-                  coords:{lat:34.7306849, lng:-92.2916932},
+                  coords:{lat:34.7306849, lng:-92.2216531},
                 //   iconImage:'assets/img/places/stparkdublin.png',
                   content:'<h2>LIT</h2>'
                 },
@@ -422,14 +465,20 @@
                 {
                 //HPN
                   coords:{lat:41.0683113, lng:-73.778704},
-                //   iconImage:'assets/img/places/stparkdublin.png',
-                  content:'<h2>HPN</h2>'
+                  iconImage:'/images/map-icon-alt.svg',
+                  content:'<h2 class="margin-map">HPN</h2>' + '<a class="map-link" href="/briefs/HPN CBIS.pdf" target="_blank">HPN CBIS</a><br>'
                 },
                 {
                 //BOS
                   coords:{lat:42.3655919, lng:-71.0796001},
-                //   iconImage:'assets/img/places/stparkdublin.png',
-                  content:'<h2>BOS</h2>'
+                  iconImage:'/images/map-icon-alt.svg',
+                  content:'<h2 class="margin-map">BOS</h2>' + '<a class="map-link" href="/briefs/BOS New Term A.pdf" target="_blank">BOS New Term A</a><br>' 
+                    + '<a class="map-link" href="/briefs/BOS Airport Wide EDS.pdf" target="_blank">BOS Airport Wide EDS</a><br>' 
+                    + '<a class="map-link" href="/briefs/BOS Recapitalization Program.pdf" target="_blank">BOS Recapitalization Program</a><br>' 
+                    + '<a class="map-link" href="/briefs/BOS Term A.pdf" target="_blank">BOS Term A</a><br>' 
+                    + '<a class="map-link" href="/briefs/BOS Terminal B - Bagroom B3-4.pdf" target="_blank">BOS Terminal B - Bagroom B3-4</a><br>' 
+                    + '<a class="map-link" href="/briefs/BOS Terminal B - Bagroom B6-7.pdf" target="_blank">BOS Terminal B - Bagroom B6-7</a><br>' 
+                    
                 },
                 {
                 //ACK
@@ -452,8 +501,14 @@
                 {
                 //EWR
                   coords:{lat:40.6895102, lng:-74.2445023},
-                //   iconImage:'assets/img/places/stparkdublin.png',
-                  content:'<h2>EWR</h2>'
+                  iconImage:'/images/map-icon-alt.svg',
+                  content:'<h2 class="margin-map">EWR</h2>' + '<a class="map-link" href="/briefs/EWR Brief Controls.pdf" target="_blank">EWR Brief Controls</a><br>' 
+                    + '<a class="map-link" href="/briefs/EWR CO Term C.pdf" target="_blank">EWR CO Term C</a><br>' 
+                    + '<a class="map-link" href="/briefs/EWR CO.pdf" target="_blank">EWR CO</a><br>' 
+                    + '<a class="map-link" href="/briefs/EWR T1.pdf" target="_blank">EWR T1</a><br>' 
+                    + '<a class="map-link" href="/briefs/EWR Terminal 1.pdf" target="_blank">EWR Terminal 1</a><br>' 
+                    + '<a class="map-link" href="/briefs/EWR Terminal B.pdf" target="_blank">EWR Terminal B</a><br>' 
+                    + '<a class="map-link" href="/briefs/EWR TX4 Transfer.pdf" target="_blank">EWR TX4 Transfer</a><br>' 
                 },
                 {
                 //PIT
@@ -494,8 +549,9 @@
                 {
                 //CLT
                   coords:{lat:35.2143824, lng:-81.0173547},
-                //   iconImage:'assets/img/places/stparkdublin.png',
-                  content:'<h2>CLT</h2>'
+                  iconImage:'/images/map-icon-alt.svg',
+                  content:'<h2 class="margin-map">CLT</h2>' + '<a class="map-link" href="/briefs/CLT.pdf" target="_blank">CLT</a><br>' 
+                  + '<a class="map-link" href="/briefs/CLT American.pdf" target="_blank">CLT American</a><br>' 
                 },
                 {
                 //MYR
@@ -785,6 +841,81 @@
                 //   iconImage:'assets/img/places/stparkdublin.png',
                   content:'<h2>SYD</h2>'
                 },
+
+
+
+
+                //Additional Locations NOT ON OLD LIST!!
+                {
+                //BGR
+                  coords:{lat:44.8080656, lng:-68.8182523},
+                  iconImage:'/images/map-icon-alt.svg',
+                  content:'<h2 class="margin-map">BGR</h2>' + '<a class="map-link" href="/briefs/BGR.pdf" target="_blank">BGR</a><br>' 
+                },
+                {
+                //BIS
+                  coords:{lat:46.7751937, lng:-100.7594334},
+                  iconImage:'/images/map-icon-alt.svg',
+                  content:'<h2 class="margin-map">BIS</h2>' + '<a class="map-link" href="/briefs/BIS EDS RECAP.pdf" target="_blank">BIS EDS RECAP</a><br>' 
+                },
+                {
+                //CID
+                  coords:{lat:42.1932225, lng:-91.1197768},
+                  iconImage:'/images/map-icon-alt.svg',
+                  content:'<h2 class="margin-map">CID</h2>' + '<a class="map-link" href="/briefs/CID.pdf" target="_blank">CID</a><br>' 
+                  + '<a class="map-link" href="/briefs/CID Mini In-Line.pdf" target="_blank">CID Mini In-Line</a><br>' 
+                },
+                {
+                //CVG
+                  coords:{lat:39.0532746, lng:-84.6652052},
+                  iconImage:'/images/map-icon-alt.svg',
+                  content:'<h2 class="margin-map">CVG</h2>' + '<a class="map-link" href="/briefs/CVG.pdf" target="_blank">CVG</a><br>'
+                },
+                {
+                //DCA
+                  coords:{lat:39.0114662, lng:-77.2025481},
+                  iconImage:'/images/map-icon-alt.svg',
+                  content:'<h2 class="margin-map">DCA</h2>' + '<a class="map-link" href="/briefs/DCA American.pdf" target="_blank">DCA American</a><br>'
+                  + '<a class="map-link" href="/briefs/DCA New B-C Terminal Project.pdf" target="_blank">DCA New B-C Terminal Project</a><br>'
+                },
+                {
+                //DTW
+                  coords:{lat:42.2161722, lng:-83.3575783},
+                  iconImage:'/images/map-icon-alt.svg',
+                  content:'<h2 class="margin-map">DTW</h2>' + '<a class="map-link" href="/briefs/DTW McNamara Term.pdf" target="_blank">DTW McNamara Term</a><br>'
+                  + '<a class="map-link" href="/briefs/DTW McNamara All Phases.pdf" target="_blank">DTW McNamara All Phases</a><br>'
+                },
+                {
+                //FAA
+                  coords:{lat:42.2161722, lng:-83.3575783},
+                  iconImage:'/images/map-icon-alt.svg',
+                  content:'<h2 class="margin-map">FAA</h2>' + '<a class="map-link" href="/briefs/DTW McNamara Term.pdf" target="_blank">DTW McNamara Term</a><br>'
+                  + '<a class="map-link" href="/briefs/DTW McNamara All Phases.pdf" target="_blank">DTW McNamara All Phases</a><br>'
+                },
+                {
+                //FLL
+                  coords:{lat:26.0742344, lng:-80.1506022},
+                  iconImage:'/images/map-icon-alt.svg',
+                  content:'<h2 class="margin-map">FLL</h2>' + '<a class="map-link" href="/briefs/FLL.pdf" target="_blank">FLL</a><br>'
+                  + '<a class="map-link" href="/briefs/FLL Term 4.pdf" target="_blank">FLL Term 4</a><br>'
+                  + '<a class="map-link" href="/briefs/FLL T3 CBIS.pdf" target="_blank">FLL T3 CBIS</a><br>'
+                },
+                {
+                //HOU
+                  coords:{lat:29.6459123, lng:-95.2790941},
+                  iconImage:'/images/map-icon-alt.svg',
+                  content:'<h2 class="margin-map">HOU</h2>' + '<a class="map-link" href="/briefs/HOU Recap.pdf" target="_blank">HOU Recap</a><br>'
+                },
+                {
+                //IAD
+                  coords:{lat:38.9531204, lng:-77.4587275},
+                  iconImage:'/images/map-icon-alt.svg',
+                  content:'<h2 class="margin-map">IAD</h2>' + '<a class="map-link" href="/briefs/IAD EWBB CBIS.pdf" target="_blank">IAD EWBB CBIS</a><br>'
+                  + '<a class="map-link" href="/briefs/IAD International Arrivals Building.pdf" target="_blank">IAD International Arrivals Building</a><br>'
+                  + '<a class="map-link" href="/briefs/IAD Main Terminal.pdf" target="_blank">IAD Main Terminal</a><br>'
+                  + '<a class="map-link" href="/briefs/IAD Multiple Terminals.pdf" target="_blank">IAD Multiple Terminals</a><br>'
+                  + '<a class="map-link" href="/briefs/IAD SBB CBIS.pdf" target="_blank">IAD SBB CBIS</a><br>'
+                },
             
                 // //Dublin
                 // {
@@ -983,47 +1114,14 @@
 
 
 <body>
-    <header>
-        <nav>
-            <a href="index.html"><div class="bnp-logo"> 
-            </div></a>
-            <ul class="nav-links">
-                <li>
-                    <a href="about.html">About us</a>
-                </li>
-                <li>
-                    <a href="services.html">Services</a>
-                </li>
-                <li>
-                    <a  class="current" href="projects.html">Projects</a>
-                </li>
-                <li>
-                    <a href="contact.html">Contact</a>
-                </li>
-                <li>
-                    <a href="careers.html">Careers</a>
-                </li>
-                <li>
-                    <a href="news.html">News</a>
-                </li>
-                <!-- <li>
-                    <a href="#">Portal</a>
-                </li> -->
-            </ul>
-            <div class="burger">
-                <div class="line1"></div>
-                <div class="line2"></div>
-                <div class="line3"></div>
-            </div>
-        </nav>
-    </header>
+    
 
     <!-- <div id="map" class="margin-med"></div>  -->
     
    <main>
         <div class="general-padding">
             <div class="main-headings">
-                <h4 class="center-headings__header margin-sm">Our Projects</h4>
+                <h4 class="center-headings__header b-blue margin-sm">Our Projects</h4>
                 <p class="center-headings__text margin-lg">Shown in the map are locations of previous and current BNP projects.</p>
             </div>
 
@@ -1040,7 +1138,7 @@
             </div>
 
             <div class="main-headings">
-                <h4 class="center-headings__header margin-sm">Our Clients</h4>
+                <h4 class="center-headings__header b-blue margin-sm">Our Clients</h4>
                 <!-- <div></div> -->
                 <p class="center-headings__text">BNP’s client list is composed of airlines, airports, government agencies, express companies and Architects/Engineers who specialize in airports. The majority of BNP clients are repeat customers who retain BNP to develop all of their material handling system designs. We work as an extension of our client's staff, offering an unparalleled wealth of knowledge and experience.</p>
             </div>
