@@ -172,7 +172,6 @@ textarea {
 }
 .b-blue-hover {
     color: #0078db !important;
-    color: rgba(0,120,219,1.0) !important;
 }
 .l-blue-dark {
     color: #003478 !important;
@@ -206,7 +205,7 @@ textarea {
     background-color: #f3f3f3;
 }
 .light-gray2 {
-    color: #b9b9b9;
+    color: #ffffff;
 }
 
 /*** Font Weight ***/
@@ -525,18 +524,29 @@ textarea {
     justify-content: center;
     align-items: center;
   }  
-  .--careers {
+  /* .--careers {
     background-image: 
     linear-gradient(to right bottom, 
     rgba(42, 138, 218, 0.85), rgba(18, 62, 119, 0.85)),
-    /* rgba(0,120,219,0.8), rgba(0,52,120,0.8)), */
-     /* url(/images/career_hero.jpg);    */
+     rgba(0,120,219,0.8), rgba(0,52,120,0.8)), 
+     rgba(0,120,219,0.8), rgba(0,52,120,0.8)), 
+     url(/images/career_hero.jpg);  
+  }  */
+  .--careers {
+    background-image: 
+    linear-gradient(to right bottom, 
+    rgba(58, 146, 218, 0.7), rgba(20, 63, 121, 0.7)),
+     url(/images/newark.jpg);  
+     /* rgba(42, 138, 218, 0.7), rgba(0,52,120,0.7)), */
   } 
   .--contact {
        background-image: url();
   } 
   .--about {
        background-image: url();
+  } 
+  .--news {
+       background-image: url(/images/hero-newsletter.jpg);
   } 
   .--services {
     background-image: 
@@ -551,7 +561,10 @@ textarea {
       /* text-align: center; */
       width: 1300px;
       color: #ffffff;
-      /* border: 1px solid black; */
+      /* background-color: rgba(0,52,120,0.8); */
+      /* padding: 7rem 4rem;
+      border-radius: 3px; */
+
   }
   .hero-secondary__header {
       font-size: 45px;
@@ -913,39 +926,6 @@ textarea {
 /* PAGES-INDEX */
 /****************************/
 
-/*** Contact ***/
-
-.section-contact-map {
-    padding: 4.7rem 0;
-}
-
-/*** Careers ***/
-
-/* .section-careers-hero { */
-    /* background-color: #ffffff; */
-    /* padding: 4.7rem 0; */
-/* } */
-.section-careers-about {
-    background-color: #ffffff;
-    padding: 4.7rem 0;
-}
-.section-careers-jobs {
-    background-color: #f3f3f3;
-    padding: 3.2rem 0 4.7rem 0;
-}
-.section-careers-why-bnp {
-    background-color: #fff;
-    padding: 4.7rem 0;
-}
-.section-careers-current-jobs {
-    background-color: #f3f3f3;
-    padding: 2.7rem 0;
-}
-.section-careers-dropdown-jobs {
-    background-color: #ffffff;
-    padding: 4.7rem 0;
-}
-
 /*** Services ***/
 
 .section-services-apron {
@@ -971,6 +951,43 @@ textarea {
 .section-services-simulation {
     padding-top: 3.2rem;
 }
+
+/*** Contact ***/
+
+.section-contact-map {
+    padding: 4.7rem 0;
+}
+
+/*** Careers ***/
+
+.section-careers-about {
+    background-color: #ffffff;
+    padding: 4.7rem 0;
+}
+.section-careers-jobs {
+    background-color: #f3f3f3;
+    padding: 3.2rem 0 4.7rem 0;
+}
+.section-careers-why-bnp {
+    background-color: #fff;
+    padding: 4.7rem 0;
+}
+.section-careers-current-jobs {
+    background-color: #f3f3f3;
+    padding: 2.7rem 0;
+}
+.section-careers-dropdown-jobs {
+    background-color: #ffffff;
+    padding: 4.7rem 0;
+}
+
+
+/*** News ***/
+.section-news-hero-label {
+    background-color: #ffffff;
+    padding: 2.7rem 0;
+}
+
 
 
 
@@ -1125,7 +1142,7 @@ nav li a:hover:after {
     /* text-transform: uppercase; */
     letter-spacing: 1px;
     font-weight: 300;
-    color: rgb(185, 185, 185);
+    /* color: rgb(185, 185, 185); */
 }
 .btn-box {
     display: flex;
@@ -1133,28 +1150,23 @@ nav li a:hover:after {
     z-index: 5;  
 }
 .btn-hero {
+    display: inline-block;
     text-align: center;
-    /* width: 150px; */
-    color: white;
-    background-color: rgb(255, 255, 255, 0.2);
-    
-    padding: .7rem 2rem;
-    margin-bottom: 20px;
-    margin-top: 25px;
+    color: #777777;
+    background-color: #ffffff;
+    padding: 1rem 3rem;
     text-transform: uppercase;
-    font-size: 15px;
     font-family: 'roboto condensed', sans-serif;
     letter-spacing: 1px;
-    /* font-weight: 400; */
-    transition: 0.3s;
+    transition: 0.2s;
     border-radius: 2px;
-    border: 1px solid white;
+
 }
 .btn-hero:hover {
     background-color: rgb(255, 255, 255, 1);
     transform: translateY(-.2rem);
     box-shadow: 0 1rem 2rem rgba(black,.9); 
-    color: #369ccc;
+    /* color: #369ccc; */
 }
 .gallery-link-center {
     display: flex;
@@ -1194,7 +1206,8 @@ nav li a:hover:after {
     height: 650px;
     animation: breath 15s ease-in-out;
     animation-fill-mode: forwards;
-    background-image: linear-gradient(rgba(9,13,18,.6), rgba(9,13,18,.6)), url(/images/hero-01.jpg);
+    background-image: linear-gradient(to right bottom, rgba(0,0,0, 0.6), rgba(0,0,0, 0.6)), url(/images/hero-01.jpg);
+    /* background-image: linear-gradient(rgba(9,13,18,.6), rgba(9,13,18,.6)), url(/images/hero-01.jpg); */
     background-size: cover;
     background-position: center center; 
     /* color: rgba(0,0,0,.6) */
