@@ -1,5 +1,9 @@
 $(document).ready(function(){
 
+    // $('.carousel').carousel({
+    //     interval: 2000
+    //   })
+
 // navbar template load
 // $('#navbars').load('navbar.html');
 
