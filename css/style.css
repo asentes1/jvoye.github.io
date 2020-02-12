@@ -175,6 +175,9 @@ textarea {
 }
 .l-blue-dark {
     color: #003478 !important;
+    /* color: #143156 !important; */
+    /* color: rgba(0,52,120,1.0); */
+    /* color: rgba(20,49,86,1.0) */
     
 }
 .l-blue-link {
@@ -554,8 +557,8 @@ textarea {
     padding: 2rem;
     color: #ffffff;
     background: linear-gradient(to right,
-    /* rgba(0,150,219,0.6), */
-    rgba(0,52,120,0.6),
+    rgba(0,150,219,0.6),
+    /* rgba(0,52,120,0.6), */
      rgba(0,52,120,0.6));
      /* background-blend-mode: screen; */
 }
@@ -1313,7 +1316,8 @@ nav li a:hover:after {
     display: flex;
     /* justify-content: center; */
     align-items: center;
-    height: 550px;
+    height: 675px;
+    /* height: 550px; */
     /* border: 2px solid white; */
     z-index: 1;
 } 
@@ -1332,10 +1336,16 @@ nav li a:hover:after {
 .hero-img-test{
     position: relative;
     height: 675px;
-    height: 550px;
+    /* height: 550px; */
     animation: breath 15s ease-in-out;
     animation-fill-mode: forwards;
-    background-image: linear-gradient(to right, rgba(0,52,120,0.6), rgba(0,52,120,0.6)), url(/images/hero-01-crop.jpg);
+    /* background-image: linear-gradient(to right, 
+    rgba(0,52,120,0.6),
+     rgba(0,52,120,0.6)),  */
+    background-image: linear-gradient(to right, 
+    rgba(0, 19, 44, 0.6),
+     rgba(0, 12, 29, 0.6)), 
+     url(/images/hero-01-crop.jpg);
     /* background-image: linear-gradient(rgba(9,13,18,.6), rgba(9,13,18,.6)), url(/images/hero-01.jpg); */
     background-size: cover;
     background-position: 50%, 50%;
